@@ -17,7 +17,7 @@ export default hopeTheme({
 
   logo: "/logo.jpg",
 
-  repo: "qifan777/qifan-blog-vuepress2",
+  repo: "qifan777/blog",
 
   docsDir: "blog",
   docsBranch: "master",
