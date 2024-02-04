@@ -1,0 +1,20 @@
+{
+  "name": "qifan-blog",
+  "version": "2.0.0",
+  "description": "A project of vuepress-theme-hope",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "docs:build": "vuepress-vite build src",
+    "docs:clean-dev": "vuepress-vite dev src --clean-cache",
+    "docs:dev": "vuepress-vite dev src",
+    "docs:update-package": "pnpm dlx vp-update"
+  },
+  "devDependencies": {
+    "@vuepress/bundler-vite": "^2.0.0-rc.2",
+    "vue": "^3.4.15",
+    "vuepress": "2.0.0-rc.2",
+    "vuepress-plugin-readmore-popular-next": "2.0.0-rc.2.1",
+    "vuepress-theme-hope": "2.0.0-rc.20"
+  }
+}
