@@ -20,7 +20,7 @@ export default hopeTheme({
   repo: "qifan777/blog",
 
   docsDir: "blog",
-  docsBranch: "master",
+  docsBranch: "main",
 
   // navbar
   navbar,
@@ -52,7 +52,7 @@ export default hopeTheme({
     comment: {
       // You should generate and use your own comment service
       provider: "Giscus",
-      repo: "qifan777/qifan-blog-vuepress2",
+      repo: "qifan777/blog",
       repoId: "R_kgDOJxGaVQ",
       category: "Announcements",
       categoryId: "DIC_kwDOJxGaVc4CZXhP",
