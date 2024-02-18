@@ -52,7 +52,7 @@ export default hopeTheme({
     comment: {
       // You should generate and use your own comment service
       provider: "Giscus",
-      repo: "qifan777/blog",
+      repo: "qifan777/qifan-blog-vuepress2",
       repoId: "R_kgDOJxGaVQ",
       category: "Announcements",
       categoryId: "DIC_kwDOJxGaVc4CZXhP",

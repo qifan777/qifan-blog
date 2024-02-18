@@ -17,17 +17,16 @@ timeline: true
 需要把创建人和编辑人的id替换成自己的id
 
 ```sql
-INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('a268e25b-b3b7-4fc2-880d-5b97e1acab0b', '2024-01-26 11:11:40.133277', '2024-01-26 11:11:40.133277', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 1, 'ALI_PAY', '支付宝', 1004, '支付方式', 'PAY_TYPE', 0);
-INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('1a687b7d-9b24-47b0-aa57-e361812dcdf0', '2024-01-26 11:10:49.521488', '2024-01-26 11:10:49.521488', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 0, 'WE_CHAT_PAY', '微信支付', 1004, '支付类型', 'PAY_TYPE', 0);
-INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('461a361d-073c-4574-aed1-c025e04a81a3', '2024-01-26 11:09:32.434369', '2024-01-26 11:13:54.428416', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 5, 'REFUNDING', '退款中', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
-INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('2a8a7427-9fb6-4ecb-822c-8b22fd493a93', '2024-01-26 11:08:34.090534', '2024-01-26 11:08:37.984915', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 4, 'CLOSED', '已关闭', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
-INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('a1a13655-7328-45c3-8cdd-dc0d41ef5792', '2024-01-26 11:06:10.939935', '2024-01-26 11:06:16.216645', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 3, 'TO_BE_EVALUATED', '待评价', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
-INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('56e8d930-6953-4f6a-875c-34d5c26802a5', '2024-01-26 11:03:49.162351', '2024-01-26 11:04:00.418344', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 2, 'TO_BE_RECEIVED', '待收货', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
-INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('fc930d38-0612-4217-91ab-809a5be03656', '2024-01-26 11:02:08.987958', '2024-01-26 11:02:22.277984', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 1, 'TO_BE_DELIVERED', '待发货', 1003, '商品订单状态 ', 'PRODUCT_ORDER_STATUS', 0);
-INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('5c820b53-6545-45fd-8442-22f7e486fc8e', '2024-01-26 10:56:45.364997', '2024-01-26 11:02:58.744868', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 0, 'TO_BE_PAID', '待付款', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
+INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('5fba34ff-760c-453a-9ce3-284ed68710ca', '2024-01-14 15:23:55.954376', '2024-01-14 15:23:55.954376', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 2, 'PRIVATE', '保密', 1001, '性别', 'GENDER', 0);
+INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('a3caf40e-a1ef-4a77-8096-f467fb14060e', '2024-01-10 10:50:18.555224', '2024-01-11 15:49:22.959501', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 0, 'MALE', '男', 1001, '性别', 'GENDER', 0);
+INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('b3366061-0be1-45f9-98de-5a86753665ce', '2024-01-10 13:55:26.468101', '2024-01-10 13:55:26.468101', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 1, 'FEMALE', '女', 1001, '性别', 'GENDER', 1);
 INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('1f01fa7b-f162-4376-870d-9207735f658d', '2024-01-16 09:33:09.151337', '2024-01-16 09:33:09.151337', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 2, 'BUTTON', '按钮', 1002, '菜单类型', 'MENU_TYPE', 2);
+INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('3860dff4-7f22-4ded-bc30-19cd1b4bc098', '2024-01-16 09:30:39.144272', '2024-01-16 09:33:15.663135', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 0, 'PAGE', '页面', 1002, '菜单类型', 'MENU_TYPE', 1);
 INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('416c90b4-42e8-4af1-a3f5-7e321c9c3437', '2024-01-16 09:32:28.555205', '2024-01-16 09:32:28.555205', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 1, 'DIRECTORY', '目录', 1002, '菜单类型', 'MENU_TYPE', 0);
-
+INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('2a8a7427-9fb6-4ecb-822c-8b22fd493a93', '2024-01-26 11:08:34.090534', '2024-01-26 11:08:37.984915', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 4, 'CLOSED', '已关闭', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
+INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('461a361d-073c-4574-aed1-c025e04a81a3', '2024-01-26 11:09:32.434369', '2024-01-26 11:13:54.428416', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 5, 'REFUNDING', '退款中', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
+INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('56e8d930-6953-4f6a-875c-34d5c26802a5', '2024-01-26 11:03:49.162351', '2024-01-26 11:04:00.418344', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 2, 'TO_BE_RECEIVED', '待收货', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
+INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('5c820b53-6545-45fd-8442-22f7e486fc8e', '2024-01-26 10:56:45.364997', '2024-01-26 11:02:58.744868', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 0, 'TO_BE_PAID', '待付款', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
 ```
 
 添加完之后调用该接口生成枚举类
@@ -51,7 +50,6 @@ create table product_order
     edited_time    datetime(6) not null,
     creator_id     varchar(36) not null,
     editor_id      varchar(36) not null,
-    coupon_user_id varchar(36) null,
     payment_id     varchar(36) not null,
     address_id     varchar(36) not null,
     status         varchar(36) not null,
@@ -268,6 +266,9 @@ input ProductOrderInput {
         skuCount       # 每个商品SKU的数量，例如购买某款商品5件。
         productSkuId   # 商品SKU的唯一标识符，用于确定具体购买的是哪一款商品的不同变体。
     }
+    payment{
+      payType
+    }
 }
 ```
 
@@ -300,49 +301,177 @@ input ProductOrderInput {
 
 @tab Service
 
-这段代码的主要功能是处理前端传递过来的订单创建请求，将其转化为符合业务逻辑的实体对象，设置初始状态和相关联的支付详情，并持久化存储到数据库中
-
-1. 首先，生成一个唯一的订单ID字符串，使用了 `UUID.randomUUID().toString()` 方法，确保每个新订单都有一个全局唯一的标识符。
-
-2. 然后，将输入的 DTO (`productOrderInput`) 转换为实体对象 `ProductOrder` 。在前端传来的实体类基础知识使用`ProductOrderDraft`进行编辑，jimmer中编辑实体类需要用Draft辅助类型。
-
-   - 对于订单项集合，遍历draft中的items，使用`ProductOrderItemDraft`给每个订单项设置其关联的订单ID（即刚才生成的 `orderId`）。
-
-3. 在订单草稿对象（draft）上设置一些默认值或必要的属性：
-   - 设置订单ID为之前生成的唯一ID。
-   - 设置订单状态为 `ProductOrderStatus.TO_BE_PAID`，表示订单还未支付。
-   - 创建并初始化一个与订单关联的支付详情对象（Payment），同样使用draft模式生成。设置支付详情的各项金额（如优惠券减免、商品总额、实付金额、运费、VIP减免等）为默认值，并设定支付类型为微信支付（PayType.WE_CHAT_PAY），交易号为空字符串。
-
-4. 最后，将填充完毕的订单实体对象 `entity` 保存至数据库，通过 `productOrderRepository.save(entity)` 方法实现。返回新保存订单的ID作为此方法的结果。
+- 接收一个 `ProductOrderInput` 类型的参数，表示创建订单时的输入信息。
+- 构建了一个 `StateEvent` 对象，用于描述订单状态迁移的事件。其中，订单状态为 "TO_BE_CREATE"，事件类型为 "CREATE"，场景ID为 `*`，业务码为 `*`。
+- 创建一个 `NewCreateContext` 对象，并设置其 `productOrderInput` 属性。
+- 构建了一个 `StateContext` 对象，该对象包含了状态事件和上下文信息。
+- 调用 `orderEngine.action` 方法，传入状态上下文，执行订单创建的逻辑。
+- 返回订单创建结果。
 
 ```java
   public String create(ProductOrderInput productOrderInput) {
-    String orderId = UUID.randomUUID().toString();
-    ProductOrder entity = ProductOrderDraft.$.produce(productOrderInput.toEntity(), draft -> {
-      draft.setItems(draft.items().stream().map(item -> {
-        return ProductOrderItemDraft.$.produce(item, productOrderItemDraft -> {
-          productOrderItemDraft.setProductOrderId(orderId);
-        });
-      }).toList());
-      draft.setId(orderId);
-      draft.setStatus(ProductOrderStatus.TO_BE_PAID)
-          .setPayment(PaymentDraft.$.produce(paymentDraft -> {
-            paymentDraft
-                .setId(UUID.randomUUID().toString())
-                .setCouponAmount(BigDecimal.ZERO)
-                .setProductAmount(BigDecimal.ONE)
-                .setPayAmount(BigDecimal.ONE)
-                .setDeliveryFee(BigDecimal.ZERO)
-                .setVipAmount(BigDecimal.ZERO)
-                .setPayType(PayType.WE_CHAT_PAY)
-                .setTradeNo("");
-          }));
-    });
-    return productOrderRepository.save(entity).id();
+    StateEvent stateEvent = StateEvent.builder()
+        .orderState(ProductOrderStatus.TO_BE_CREATE.getKeyEnName())
+        .eventType("CREATE")
+        .sceneId("*")
+        .businessCode("*").build();
+    NewCreateContext newCreateContext = new NewCreateContext().setProductOrderInput(
+        productOrderInput);
+    R<String> res = orderEngine.action(new StateContext<>(stateEvent, newCreateContext));
+    return res.getResult();
   }
-
 ```
 
+@tab 订单创建上下文
+
+1. **`@Data` 注解：**
+   - 使用 Lombok 提供的注解，自动生成 getter、setter、equals、hashCode 和 toString 方法。
+
+2. **`@Accessors(chain = true)` 注解：**
+   - 该注解表示生成的 setter 方法返回当前对象，以支持链式调用。
+
+3. **属性：**
+   - `productOrderInput`：用于存储创建订单时的输入信息，类型为 `ProductOrderInput`。
+   - `payment`：用于存储支付信息，类型为 `Payment`。
+
+```java
+@Data
+@Accessors(chain = true)
+public class NewCreateContext {
+
+  private ProductOrderInput productOrderInput;
+  private Payment payment;
+}
+```
+
+@tab 订单创建处理器
+这是一个订单状态处理器 `NewCreateProcessor`，用于处理订单状态为 "TO_BE_CREATE"，事件为 "CREATE" 的情况。以下是对该处理器的主要特点和作用的解释：
+
+1. **`@OrderStateProcessor` 注解：**
+   - 标记了该类为订单状态处理器，并指定了处理的订单状态为 "TO_BE_CREATE"，事件为 "CREATE"。
+
+2. **`@AllArgsConstructor` 注解：**
+   - 使用 Lombok 提供的注解，生成包含所有参数的构造方法, 使得可以使用构造器注入依赖。
+
+3. **继承自 `AbstractStateProcessor`：**
+   - 该类继承了一个抽象的订单状态处理器 `AbstractStateProcessor`，并实现了其中的抽象方法。
+   - 泛型类型为 `<String, NewCreateContext>`，表示该处理器处理的是返回结果类型为 `String`，上下文类型为 `NewCreateContext` 。
+
+4. **`prepare` 方法：**
+   - 在状态迁移之前进行准备数据的方法，这里主要是设置支付信息，通过调用 `PaymentDraft.$.produce` 方法构建支付信息的实体。
+   - 在支付信息中设置了优惠券金额、商品金额、实际支付金额、运费、VIP 金额等。
+
+5. **`check` 方法：**
+   - 在状态迁移之前进行校验的方法，主要校验商品库存是否足够，以及其他一些业务规则。
+   - 如果库存不足，抛出相应的业务异常。
+
+6. **`getNextState` 方法：**
+   - 根据业务逻辑确定订单状态迁移后的下一个状态，这里是将订单状态迁移到 "TO_BE_PAID"。
+
+7. **`action` 方法：**
+   - 执行具体的业务逻辑，例如扣减库存等操作。
+   - 这里使用了一个库存表的更新操作，将商品库存进行扣减。
+
+8. **`save` 方法：**
+   - 执行状态迁移成功后的持久化操作，创建一个新的订单，并保存到数据库中。
+   - 生成订单号，构建订单实体，并保存订单。
+
+```java
+@OrderStateProcessor(state = "TO_BE_CREATE", event = "CREATE")
+@Service
+@AllArgsConstructor
+public class NewCreateProcessor extends AbstractStateProcessor<String, NewCreateContext> {
+
+  private final ProductOrderRepository productOrderRepository;
+  private final ProductSkuRepository productSkuRepository;
+
+  @Override
+  public void prepare(StateContext<NewCreateContext> context) {
+    context.getContext().setPayment(PaymentDraft.$.produce(
+        context.getContext().getProductOrderInput().getPayment().toEntity(),
+        draft -> draft
+            .setId(IdUtil.fastSimpleUUID())
+            .setCouponAmount(BigDecimal.ZERO)
+            // 商品价格计算
+            .setProductAmount(BigDecimal.valueOf(0.01))
+            // 实际支付价格计算
+            .setPayAmount(BigDecimal.valueOf(0.01))
+            // 运费计算
+            .setDeliveryFee(BigDecimal.ZERO)
+            // VIP价格计算
+            .setVipAmount(BigDecimal.ZERO)));
+  }
+
+  @Override
+  public R<String> check(StateContext<NewCreateContext> context) {
+    context.getContext().getProductOrderInput().getItems().forEach(item -> {
+      ProductSku productSku = productSkuRepository
+          .findById(item.getProductSkuId())
+          .orElseThrow(() -> new BusinessException(
+              ResultCode.NotFindError, "商品SKU不存在"));
+      if (productSku.stock() - item.getSkuCount() <= 0) {
+        throw new BusinessException(ResultCode.ValidateError, "商品库存不足");
+      }
+      // 优惠券校验
+    });
+    return R.ok();
+  }
+
+  @Override
+  public String getNextState(StateContext<NewCreateContext> context) {
+    return ProductOrderStatus.TO_BE_PAID.getKeyEnName();
+  }
+
+  @Override
+  public R<String> action(String nextState, StateContext<NewCreateContext> context) {
+    context.getContext().getProductOrderInput().getItems().forEach(productOrderItem -> {
+      // 扣减库存
+      ProductSkuTable t = ProductSkuTable.$;
+      productSkuRepository
+          .sql()
+          .createUpdate(t)
+          .set(t.stock(), t.stock().minus(productOrderItem.getSkuCount()))
+          .where(t.id().eq(productOrderItem.getProductSkuId()))
+          .execute();
+    });
+    // 扣减优惠券等等
+    return R.ok();
+  }
+
+  @Override
+  public R<String> save(String nextState, StateContext<NewCreateContext> context) {
+    String orderId = IdUtil.fastSimpleUUID();
+    ProductOrder entity = ProductOrderDraft.$.produce(context.getContext().getProductOrderInput()
+            .toEntity(),
+        draft -> {
+          // 设置订单项关联的订单id
+          draft.setItems(draft.items().stream().map(item -> {
+            return ProductOrderItemDraft.$.produce(item, productOrderItemDraft -> {
+              productOrderItemDraft.setProductOrderId(orderId);
+            });
+          }).toList());
+          // 设置订单的id和状态
+          draft
+              .setId(orderId)
+              .setStatus(ProductOrderStatus.valueOf(nextState));
+
+          // 设置支付详情
+          draft.setPayment(context.getContext().getPayment());
+        });
+    return R.ok(productOrderRepository.save(entity).id());
+  }
+
+  @Override
+  public void after(StateContext<NewCreateContext> context) {
+
+  }
+}
+```
+
+:::
+
+:::info
+[订单状态机](./state-machine.md)
 :::
 
 ## 路由配置
@@ -679,6 +808,7 @@ Taro.eventCenter.on("submitCart", (items: CartItem[]) => {
      - `remark`：空字符串，代表订单备注，默认为空。
      - `items`：基于购物车商品数据（`cartItems.value`）映射生成，每个元素是一个对象，包含商品SKU ID (`productSkuId`) 和购买数量 (`skuCount`)。
      - `addressId`：用户选择的收货地址ID。
+     - `payment.payType`: 支付类型为微信支付
 
 3. **处理响应结果**：
    - 当后端成功创建订单并返回响应时，打印响应内容到控制台，并使用 `Taro.showToast` 展示一个成功的提示消息：“订单创建成功”。
@@ -702,6 +832,9 @@ const saveOrder = () => {
           skuCount: item.count,
         })),
         addressId: address.value.id,
+        payment: {
+          payType: "WE_CHAT_PAY",
+        }
       },
     })
     .then((res) => {
