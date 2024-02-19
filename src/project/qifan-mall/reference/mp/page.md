@@ -238,16 +238,13 @@ export const usePageHelper = <T extends Object, E>(
   // 忽略...
 
   // 重置请求分页数据，pageNum=1, pageSize=10。也可以手动指定重置的页数，默认是回到第一页。
-  const reloadPageData = (
-    queryRequest: Partial<QueryRequest<T>> = { pageNum: 1, pageSize: 10 },
-  ) => {
-    loadPageData(queryRequest);
+  const reloadPageData = (query?: T) => {
+    finish.value = false;
+    pageData.value.content = [];
+    loadPageData({ pageNum: 1, pageSize: 10, query });
   };
   // 下拉刷新
   Taro.usePullDownRefresh(() => {
-    // 重置状态
-    finish.value = false;
-    pageData.value.content = [];
     reloadPageData();
     setTimeout(() => {
       Taro.stopPullDownRefresh();
@@ -346,15 +343,13 @@ export const usePageHelper = <T extends Object, E>(
     );
   };
   // 重新请求分页数据，pageNum=1, pageSize=10
-  const reloadPageData = (
-    queryRequest: Partial<QueryRequest<T>> = { pageNum: 1, pageSize: 10 },
-  ) => {
-    loadPageData(queryRequest);
+  const reloadPageData = (query?: T) => {
+    finish.value = false;
+    pageData.value.content = [];
+    loadPageData({ pageNum: 1, pageSize: 10, query });
   };
   // 下拉刷新
   Taro.usePullDownRefresh(() => {
-    finish.value = false;
-    pageData.value.content = [];
     reloadPageData();
     setTimeout(() => {
       Taro.stopPullDownRefresh();

@@ -1,3 +1,14 @@
+---
+category:
+  - 起凡商城
+tag:
+  - 订单
+  - 订单列表
+order: 3
+date: 2024-02-01
+timeline: true
+---
+
 # 订单列表
 
 ![订单列表](image.png =x350)
@@ -186,14 +197,129 @@ const keyName = computed(() => {
 
 :::
 
-### 订单展示
+### 订单状态选项卡
 
-:::tabs
+::::tabs
+
 @tab html
 
-1. `<div class="order-list-page">`：定义一个包裹整个订单列表内容的容器，类名为"order-list-page"。
+订单选型卡(tab)
 
-2. 使用`v-for`指令遍历从`pageData.content`获取的所有订单数据：
+1. `<nut-tabs v-model="activeStatus" @change="handleTabChange">`: 使用了 `nut-tabs` 创建含选项卡。`v-model="activeStatus"` 表示将 `activeStatus` 数据属性与选项卡的状态进行双向绑定。`@change="handleTabChange"` 表示当选项卡发生改变时，将调用名为 `handleTabChange` 的方法。
+
+2. `<nut-tab-pane v-for="tab in tabList" :key="tab.keyId" :title="tab.keyName" :pane-key="tab.keyEnName">`: 使用了 `nut-tab-pane` 组件，它被放置在 `nut-tabs` 内部。通过 `v-for` 循环遍历 `tabList` 数组，为每个选项卡设置了唯一的 `key` 值（`:key="tab.keyId"`），标题（`:title="tab.keyName"`），和面板键值（`:pane-key="tab.keyEnName"`）。
+
+```html
+<template>
+  <div class="order-list-page">
+    <nut-tabs v-model="activeStatus" @change="handleTabChange">
+      <nut-tab-pane
+        v-for="tab in tabList"
+        :key="tab.keyId"
+        :title="tab.keyName"
+        :pane-key="tab.keyEnName"
+      >
+      </nut-tab-pane>
+    </nut-tabs>
+  </div>
+</template>
+```
+
+@tab ts
+
+:::tip
+
+1. **常量解构赋值：**
+
+   ```javascript
+   const { TO_BE_PAID, TO_BE_DELIVERED, TO_BE_RECEIVED, CLOSED } = Dictionaries.ProductOrderStatus;
+   ```
+
+   这一行代码使用解构赋值从 `Dictionaries.ProductOrderStatus` 中提取了四个订单状态的常量值。
+
+2. **选项卡列表：**
+
+   ```javascript
+   const tabList = [TO_BE_PAID, TO_BE_DELIVERED, TO_BE_RECEIVED, CLOSED];
+   ```
+
+   创建了一个包含订单状态的数组 `tabList`，用于在选项卡中显示不同的状态。
+
+3. **响应式状态：**
+
+   ```javascript
+   const activeStatus = ref<ProductOrderStatus>("TO_BE_PAID");
+   ```
+
+   使用 `ref` 函数创建了一个响应式引用 `activeStatus`，并将其初始化为默认值 `"TO_BE_PAID"`。
+
+4. **选项卡变更处理函数：**
+
+   ```javascript
+   const handleTabChange = () => {
+     reloadPageData({ status: activeStatus.value });
+   };
+   ```
+
+   定义了一个名为 `handleTabChange` 的函数，用于在选项卡变更时重新加载页面数据，并将当前选中的状态作为参数传递给 `reloadPageData` 函数。
+
+5. **使用PageHelper：**
+
+   ```javascript
+   const { pageData, reloadPageData } = usePageHelper(
+     api.productOrderController.queryByUser,
+     api.productOrderController,
+     { status: activeStatus.value },
+   );
+   ```
+
+   使用 `usePageHelper` 的自定义钩子，该钩子用于管理页面数据。通过调用 `queryByUser` 方法从 `api.productOrderController` 获取页面数据，并使用 `activeStatus.value` 作为初始状态进行初始化。返回的 `pageData` 和 `reloadPageData` 分别用于存储页面数据和重新加载页面数据的函数。
+
+:::
+
+```ts
+const { TO_BE_PAID, TO_BE_DELIVERED, TO_BE_RECEIVED, CLOSED } =
+  Dictionaries.ProductOrderStatus;
+const tabList = [TO_BE_PAID, TO_BE_DELIVERED, TO_BE_RECEIVED, CLOSED];
+const activeStatus = ref<ProductOrderStatus>("TO_BE_PAID");
+const handleTabChange = () => {
+  reloadPageData({ status: activeStatus.value });
+};
+const { pageData, reloadPageData } = usePageHelper(
+  api.productOrderController.queryByUser,
+  api.productOrderController,
+  { status: activeStatus.value },
+);
+```
+
+@tab css
+
+```css
+page {
+  background-color: #f5f5f5;
+}
+.order-list-page {
+  .nut-tabs__list {
+    background-color: white;
+  }
+  .nut-tab-pane {
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+}
+```
+
+::::
+
+### 订单展示
+
+::::tabs
+
+@tab html
+
+:::tip
+
+1. 使用`v-for`指令遍历从`pageData.content`获取的所有订单数据：
 
    ```html
    <div class="order" v-for="order in pageData.content" :key="order.id">
@@ -201,7 +327,7 @@ const keyName = computed(() => {
 
    这里对每个订单项创建一个新的`.order`元素。
 
-3. 在循环内部，使用自定义组件`order-row`来展示每个订单的详细信息，并将当前订单对象作为属性值传递给该组件：
+2. 在循环内部，使用自定义组件`order-row`来展示每个订单的详细信息，并将当前订单对象作为属性值传递给该组件：
 
    ```html
    <order-row :order="order" @click="switchPage('./order-details?id=' + order.id)">
@@ -209,35 +335,48 @@ const keyName = computed(() => {
 
    当用户点击这个订单行时，会触发`switchPage`事件处理器方法，跳转到对应的订单详情页，URL中包含了当前订单ID。
 
-4. 根据订单状态动态显示按钮：
+3. 根据订单状态动态显示按钮：
    - 如果满足`showCancel(order.status)`条件，则显示“取消订单”按钮。
    - 如果订单状态为 `'TO_BE_PAID'`，则显示“立即支付”按钮。
 
-```html
+:::
+
+```html {10-26}
 <template>
   <div class="order-list-page">
-    <div class="order" v-for="order in pageData.content" :key="order.id">
-      <order-row
-        :order="order"
-        @click="switchPage('./order-details?id=' + order.id)"
+    <nut-tabs v-model="activeStatus" @change="handleTabChange">
+      <nut-tab-pane
+        v-for="tab in tabList"
+        :key="tab.keyId"
+        :title="tab.keyName"
+        :pane-key="tab.keyEnName"
       >
-        <nut-button size="small" plain v-if="showCancel(order.status)"
-          >取消订单</nut-button
-        >
-        <nut-button
-          size="small"
-          type="danger"
-          plain
-          v-if="order.status === 'TO_BE_PAID'"
-          >立即支付</nut-button
-        >
-      </order-row>
-    </div>
+        <div class="order" v-for="order in pageData.content" :key="order.id">
+          <order-row
+            :order="order"
+            @click="switchPage('./order-details?id=' + order.id)"
+          >
+            <nut-button size="small" plain v-if="showCancel(order.status)"
+              >取消订单</nut-button
+            >
+            <nut-button
+              size="small"
+              type="danger"
+              plain
+              v-if="order.status === 'TO_BE_PAID'"
+              >立即支付</nut-button
+            >
+          </order-row>
+        </div>
+      </nut-tab-pane>
+    </nut-tabs>
   </div>
 </template>
 ```
 
 @tab ts
+
+:::tip
 
 1. 导入所需模块：
    - [`usePageHelper`](../reference/mp/page.md)：来自项目内部的工具函数，通常用来处理分页数据的获取、加载更多等功能。
@@ -259,7 +398,7 @@ const keyName = computed(() => {
    这里传入了两个参数：
    - 第一个参数是调用后端查询当前用户订单的API方法（`queryByUser`）。
    - 第二个`api.productOrderController`用于绑定查询方法的上下文, 即`this`指向当前组件实例。
-   - 第三个参数是一个空对象，代表请求时需要传递给API的初始查询参数。
+   - 第三个参数查询条件，代表请求时需要传递给API的初始查询参数。
 
 3. 定义一个辅助函数`showCancel`，根据订单状态判断是否显示“取消订单”按钮：
 
@@ -271,6 +410,8 @@ const keyName = computed(() => {
 
    当订单状态为“待支付”或“待发货”时，此函数会返回`true`，表示允许用户操作取消订单。
 
+:::
+
 ```ts
 import { usePageHelper } from "@/utils/page";
 import { api } from "@/utils/api-instance";
@@ -281,19 +422,11 @@ import { switchPage } from "@/utils/common";
 const { pageData } = usePageHelper(
   api.productOrderController.queryByUser,
   api.productOrderController,
-  {},
+  { status: activeStatus.value },
 );
 const showCancel = (status: ProductOrderStatus) => {
   return status === "TO_BE_PAID" || status === "TO_BE_DELIVERED";
 };
 ```
 
-@tab css
-
-```scss
-page {
-  background-color: #f5f5f5;
-}
-```
-
-:::
+::::
