@@ -65,6 +65,18 @@ public class WxPayPropertiesExtension {
 }
 ```
 
+```java {3}
+@SpringBootApplication
+@EnableImplicitApi
+@EnableConfigurationProperties(value = {WxPayPropertiesExtension.class})
+public class MallServerApplication {
+
+  public static void main(String[] args) {
+    SpringApplication.run(MallServerApplication.class, args);
+  }
+}
+```
+
 ## api
 
 `io.qifan.mall.server.order.service.ProductOrderService#prepay`
@@ -96,7 +108,7 @@ public class WxPayPropertiesExtension {
         .sceneId(productOrder.payment().payType().getKeyEnName())
         .businessCode("*")
         .build();
-    R<JsapiResult> res = orderEngine.action(
+    R<JsapiResult> res = stateMachine.action(
         new StateContext<>(stateEvent, new PrepayWeChatContext()
             .setOrderId(id)));
     return res.getResult();

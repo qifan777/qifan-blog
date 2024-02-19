@@ -17,16 +17,18 @@ timeline: true
 需要把创建人和编辑人的id替换成自己的id
 
 ```sql
-INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('5fba34ff-760c-453a-9ce3-284ed68710ca', '2024-01-14 15:23:55.954376', '2024-01-14 15:23:55.954376', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 2, 'PRIVATE', '保密', 1001, '性别', 'GENDER', 0);
-INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('a3caf40e-a1ef-4a77-8096-f467fb14060e', '2024-01-10 10:50:18.555224', '2024-01-11 15:49:22.959501', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 0, 'MALE', '男', 1001, '性别', 'GENDER', 0);
-INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('b3366061-0be1-45f9-98de-5a86753665ce', '2024-01-10 13:55:26.468101', '2024-01-10 13:55:26.468101', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 1, 'FEMALE', '女', 1001, '性别', 'GENDER', 1);
-INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('1f01fa7b-f162-4376-870d-9207735f658d', '2024-01-16 09:33:09.151337', '2024-01-16 09:33:09.151337', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 2, 'BUTTON', '按钮', 1002, '菜单类型', 'MENU_TYPE', 2);
-INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('3860dff4-7f22-4ded-bc30-19cd1b4bc098', '2024-01-16 09:30:39.144272', '2024-01-16 09:33:15.663135', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 0, 'PAGE', '页面', 1002, '菜单类型', 'MENU_TYPE', 1);
-INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('416c90b4-42e8-4af1-a3f5-7e321c9c3437', '2024-01-16 09:32:28.555205', '2024-01-16 09:32:28.555205', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 1, 'DIRECTORY', '目录', 1002, '菜单类型', 'MENU_TYPE', 0);
 INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('2a8a7427-9fb6-4ecb-822c-8b22fd493a93', '2024-01-26 11:08:34.090534', '2024-01-26 11:08:37.984915', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 4, 'CLOSED', '已关闭', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
 INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('461a361d-073c-4574-aed1-c025e04a81a3', '2024-01-26 11:09:32.434369', '2024-01-26 11:13:54.428416', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 5, 'REFUNDING', '退款中', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
 INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('56e8d930-6953-4f6a-875c-34d5c26802a5', '2024-01-26 11:03:49.162351', '2024-01-26 11:04:00.418344', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 2, 'TO_BE_RECEIVED', '待收货', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
 INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('5c820b53-6545-45fd-8442-22f7e486fc8e', '2024-01-26 10:56:45.364997', '2024-01-26 11:02:58.744868', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 0, 'TO_BE_PAID', '待付款', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
+INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('a1a13655-7328-45c3-8cdd-dc0d41ef5792', '2024-01-26 11:06:10.939935', '2024-01-26 11:06:16.216645', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 3, 'TO_BE_EVALUATED', '待评价', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
+INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('f0e0c95e7ad249deb9359691d009fd7a', '2024-02-18 15:08:27.511795', '2024-02-18 15:10:19.268405', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 6, 'TO_BE_CREATE', '待创建', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
+INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('fc930d38-0612-4217-91ab-809a5be03656', '2024-01-26 11:02:08.987958', '2024-01-26 11:02:22.277984', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 1, 'TO_BE_DELIVERED', '待发货', 1003, '商品订单状态', 'PRODUCT_ORDER_STATUS', 0);
+
+INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('1a687b7d-9b24-47b0-aa57-e361812dcdf0', '2024-01-26 11:10:49.521488', '2024-01-26 11:10:49.521488', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 0, 'WE_CHAT_PAY', '微信支付', 1004, '支付类型', 'PAY_TYPE', 0);
+INSERT INTO mall.dict (id, created_time, edited_time, creator_id, editor_id, key_id, key_en_name, key_name, dict_id, dict_name, dict_en_name, order_num) VALUES ('a268e25b-b3b7-4fc2-880d-5b97e1acab0b', '2024-01-26 11:11:40.133277', '2024-01-26 11:11:40.133277', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', '0f07d638-f1bc-4011-88d8-6dc650ab06a7', 1, 'ALI_PAY', '支付宝', 1004, '支付类型', 'PAY_TYPE', 0);
+
+
 ```
 
 添加完之后调用该接口生成枚举类
@@ -305,10 +307,12 @@ input ProductOrderInput {
 - 构建了一个 `StateEvent` 对象，用于描述订单状态迁移的事件。其中，订单状态为 "TO_BE_CREATE"，事件类型为 "CREATE"，场景ID为 `*`，业务码为 `*`。
 - 创建一个 `NewCreateContext` 对象，并设置其 `productOrderInput` 属性。
 - 构建了一个 `StateContext` 对象，该对象包含了状态事件和上下文信息。
-- 调用 `orderEngine.action` 方法，传入状态上下文，执行订单创建的逻辑。
+- 调用 `stateMachine.action` 方法，传入状态上下文，执行订单创建的逻辑。
 - 返回订单创建结果。
 
 ```java
+  private final StateMachine stateMachine;
+  
   public String create(ProductOrderInput productOrderInput) {
     StateEvent stateEvent = StateEvent.builder()
         .orderState(ProductOrderStatus.TO_BE_CREATE.getKeyEnName())
@@ -317,7 +321,7 @@ input ProductOrderInput {
         .businessCode("*").build();
     NewCreateContext newCreateContext = new NewCreateContext().setProductOrderInput(
         productOrderInput);
-    R<String> res = orderEngine.action(new StateContext<>(stateEvent, newCreateContext));
+    R<String> res = stateMachine.action(new StateContext<>(stateEvent, newCreateContext));
     return res.getResult();
   }
 ```

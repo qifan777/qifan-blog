@@ -63,7 +63,7 @@ timeline: true
 
 - **调用状态机处理支付回调事件：**
   - 创建 `StateContext` 对象，传递 `StateEvent` 和包含解密结果的上下文对象 `NotifyWeChatContext`。
-  - 调用 `orderEngine.action` 方法，触发状态机处理支付回调事件。
+  - 调用 `stateMachine.action` 方法，触发状态机处理支付回调事件。
 
 - **返回处理结果：**
   - 返回处理结果，通常是一个包含处理信息的字符串。
@@ -88,7 +88,7 @@ timeline: true
         .sceneId(productOrder.payment().payType().getKeyEnName())
         .businessCode("*")
         .build();
-    R<String> res = orderEngine.action(
+    R<String> res = stateMachine.action(
         new StateContext<>(stateEvent, new NotifyWeChatContext()
             .setDecryptNotifyResult(notifyResult)));
     return res.getResult();
