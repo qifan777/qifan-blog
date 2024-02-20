@@ -149,7 +149,7 @@ input ProductInput {
 ```
 
 :::info
-[标签输入组件](../reference/front/README.md/#标签列表输入组件)
+[标签输入组件](../reference/front/tag-input.md)
 :::
 
 ## 规格输入
@@ -165,7 +165,7 @@ input ProductInput {
 ```
 
 :::info
-[键值对输入组件](../reference/front/README.md/#键值对输入组件)
+[键值对输入组件](../reference/front/key-value-input.md)
 :::
 
 ## 属性输入
@@ -181,5 +181,5 @@ input ProductInput {
 ```
 
 :::info
-[键值对输入组件](../reference/front/README.md/#键值对输入组件)
+[键值对输入组件](../reference/front/key-value-input.md)
 :::

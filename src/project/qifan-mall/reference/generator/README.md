@@ -630,9 +630,9 @@ Store同一管理Query,Table,Dialog,Form中涉及的通用变量。方便各个�
 
 :::info
 针对增删改查中场景的变量用组合式的思想抽取出来，方便后续快速编写增删改查。
-[useTableHelper](../front/README.md/#tablehelper) 抽取Table中常用的变量和函数。
-[useDialogHelper](../front/README.md/#dialoghelper) 抽取Dialog中常用的变量和函数。
-[useQueryHelper](../front/README.md/#queryhelper) 抽取Query中的通用变量和函数。
+[useTableHelper](../front/helper-tool.md/#tablehelper) 抽取Table中常用的变量和函数。
+[useDialogHelper](../front/helper-tool.md/#dialoghelper) 抽取Dialog中常用的变量和函数。
+[useQueryHelper](../front/helper-tool.md/#queryhelper) 抽取Query中的通用变量和函数。
 :::
 
 ```ts

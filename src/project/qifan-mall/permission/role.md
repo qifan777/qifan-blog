@@ -222,7 +222,7 @@ public String save(UserInput userInput) {
 
 ### 前端实现
 
-使用[RemoteSelect组件](../reference/front/README.md/#远程选择器)即可实现下图效果
+使用[RemoteSelect组件](../reference/front/remote-select.md)即可实现下图效果
 
 :::center
 ![图1 选择角色](img_2.png)
@@ -290,7 +290,7 @@ const roleQueryOptions = async (keyword: string) => {
 ```
 
 :::info
-[RemoteSelect组件](../reference/front/README.md#远程选择器)：快速选择远程数据
+[RemoteSelect组件](../reference/front/remote-select.md)：快速选择远程数据
 :::
 
 ## 编辑用户（回显）修改角色
