@@ -106,7 +106,7 @@ public class MallServerApplication {
         .orderState(productOrder.status().getKeyEnName())
         .eventType("PREPAY")
         .sceneId(productOrder.payment().payType().getKeyEnName())
-        .businessCode("*")
+        .businessCode("PRODUCT_ORDER")
         .build();
     R<JsapiResult> res = stateMachine.action(
         new StateContext<>(stateEvent, new PrepayWeChatContext()
@@ -161,7 +161,7 @@ public class PrepayWeChatContext {
 总体而言，该处理器用于处理订单状态为 "TO_BE_PAID"，事件为 "PREPAY"，场景为 "WE_CHAT_PAY" 的情况，其中包含了与微信支付相关的业务逻辑。
 
 ```java
-@OrderStateProcessor(state = "TO_BE_PAID", event = "PREPAY", sceneId = "WE_CHAT_PAY")
+@OrderStateProcessor(state = "TO_BE_PAID", event = "PREPAY", sceneId = "WE_CHAT_PAY", bizCode = "PRODUCT_ORDER")
 @Slf4j
 @AllArgsConstructor
 public class PrepayWeChatProcessor extends

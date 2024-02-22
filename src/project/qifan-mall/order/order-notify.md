@@ -86,7 +86,7 @@ timeline: true
         .orderState(productOrder.status().getKeyEnName())
         .eventType("NOTIFY")
         .sceneId(productOrder.payment().payType().getKeyEnName())
-        .businessCode("*")
+        .businessCode("PRODUCT_ORDER")
         .build();
     R<String> res = stateMachine.action(
         new StateContext<>(stateEvent, new NotifyWeChatContext()
@@ -130,7 +130,7 @@ public class NotifyWeChatContext {
   - 将保存后订单对象的ID包装成成功的响应返回。
 
 ```java
-@OrderStateProcessor(state = "TO_BE_PAID", event = "NOTIFY", sceneId = "WE_CHAT_PAY")
+@OrderStateProcessor(state = "TO_BE_PAID", event = "NOTIFY", sceneId = "WE_CHAT_PAY", bizCode = "PRODUCT_ORDER")
 @Slf4j
 @AllArgsConstructor
 public class NotifyWeChatProcessor extends AbstractStateProcessor<String, NotifyWeChatContext> {

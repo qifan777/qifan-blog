@@ -318,7 +318,7 @@ input ProductOrderInput {
         .orderState(ProductOrderStatus.TO_BE_CREATE.getKeyEnName())
         .eventType("CREATE")
         .sceneId("*")
-        .businessCode("*").build();
+        .businessCode("PRODUCT_ORDER").build();
     NewCreateContext newCreateContext = new NewCreateContext().setProductOrderInput(
         productOrderInput);
     R<String> res = stateMachine.action(new StateContext<>(stateEvent, newCreateContext));
@@ -381,7 +381,7 @@ public class NewCreateContext {
    - 生成订单号，构建订单实体，并保存订单。
 
 ```java
-@OrderStateProcessor(state = "TO_BE_CREATE", event = "CREATE")
+@OrderStateProcessor(state = "TO_BE_CREATE", event = "CREATE", bizCode = "PRODUCT_ORDER")
 @Service
 @AllArgsConstructor
 public class NewCreateProcessor extends AbstractStateProcessor<String, NewCreateContext> {
