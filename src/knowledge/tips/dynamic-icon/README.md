@@ -44,7 +44,7 @@ $ pnpm install @element-plus/icons-vue
         <Edit />
     </el-icon>
 </template>
-<script>
+<script setup>
 import { Edit } from '@element-plus/icons-vue'
 
 </script>
