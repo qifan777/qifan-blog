@@ -117,3 +117,10 @@ npm run api-admin
 ```shell
 npm run dev
 ```
+
+### 访问
+
+访问 `http://localhost:5177`
+
+账户：11111111111
+密码：123456

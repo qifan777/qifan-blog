@@ -26,6 +26,9 @@ docker-compose up -d
 
 访问`http://localhost:8877`。
 
+账户：11111111111
+密码：123456
+
 ## API-KEY配置
 
 请参考[API-KEY配置](./use.md/#ai厂商密钥配置)。
