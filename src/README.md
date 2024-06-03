@@ -28,6 +28,11 @@ projects:
     desc: 全栈项目，电商经典业务商品规格，优惠券，订单状态机，支付，拉新营销等等
     link: /project/qifan-mall/
 
+  - icon: /assets/icon/uni-ai.png
+    name: uni-ai
+    desc: 统一的界面集成了百度千帆/阿里灵积/讯飞星火/智谱清言/Kimi/OpenAI，有文本聊天，图片理解，预置提示词，知识库，图片生成等功能。
+    link: /project/uni-ai/
+
 footer: 联系方式：ljc666max
 ---
 

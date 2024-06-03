@@ -22,11 +22,6 @@ export default sidebar({
       link: "/project/chatgpt-assistant/chapter10/",
     },
   ],
-  "/project/qifan-shop/": [
-    { text: "项目介绍", link: "/project/qifan-shop/" },
-    { text: "参考", prefix: "reference/", children: "structure" },
-    { text: "商品模块", prefix: "product/", children: "structure" },
-  ],
   "/project/qifan-mall/": [
     { text: "项目介绍", link: "/project/qifan-mall/" },
     { text: "快速上手", prefix: "start/", children: "structure" },
@@ -57,6 +52,10 @@ export default sidebar({
       ],
     },
   ],
+  "/project/uni-ai/":[
+    {text:"项目介绍",link:'/project/uni-ai/'},
+    { text: "快速上手", prefix: "get-started/", children: "structure" },
+  ],
   "/knowledge/vite/": [
     { text: "Vite", link: "/knowledge/vite/" },
     {
@@ -74,4 +73,5 @@ export default sidebar({
   ],
   "/knowledge/jpa/hibernate": "structure",
   "/tools/idea": "structure",
+  
 });
