@@ -4,16 +4,22 @@
 
 | 厂家     | 文本对话 | 图片理解 | 图片生成 | 知识库（向量数据库） | 预置角色 |  
 |--------|------|------|------|------------|------|
-| OpenAI | ✔    | ✔    | 计划中  | ✔          | ✔    |
-| 阿里灵积   | ✔    | ✔    | 计划中  | ✔          | ✔    |
+| OpenAI | ✔    | ✔    | ✔  | ✔          | ✔    |
+| 阿里灵积   | ✔    | ✔    | ✔  | ✔          | ✔    |
 | 百度千帆   | ✔    | ×    | 计划中  | ✔          | ✔    |
 | 讯飞星火   | ✔    | ×    | 计划中  | ×          | ✔    |
-| 智普清言   | ✔    | ✔    | 计划中  | ✔          | ✔    |
+| 智普清言   | ✔    | ✔    | ✔  | ✔          | ✔    |
 | kimi   | ✔    | ×    | 计划中  | ×          | ✔    |
 
 ### 知识库
 
 ![知识库](image.png )
+
+[知识库使用教程](https://www.jarcheng.top/blog/project/uni-ai/get-started/use.html#%E7%9F%A5%E8%AF%86%E5%BA%93)
+
+### 图片生成
+
+![图片生成](image-4.png)
 
 ### 图片理解
 
@@ -24,6 +30,11 @@
 ### 文本对话
 
 ![markdown解析+流式对话+多种模型](image-3.png)
+
+## 项目安装
+
+[docker-compose方式快速安装](https://www.jarcheng.top/blog/project/uni-ai/get-started/docker-compose-run.html)
+[源码方式安装](https://www.jarcheng.top/blog/project/uni-ai/get-started/source-run.html)
 
 ## 项目结构
 
@@ -135,7 +146,6 @@
 ### 小程序端
 
 小程序端规划中
-
 
 ## 联系方式
 

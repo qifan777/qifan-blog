@@ -26,7 +26,7 @@ export default defineUserConfig({
       // 自定义的 CSS 资源链接，可用于适配不同风格的博客
       cssUrl: '/blog/readmore.css',
       // 文章排除添加引流工具的 URL 规则，支持使用路径、通配符、正则表达式的匹配规则
-      excludes: { strExp: [], regExp: [] },
+      excludes: { strExp: [], regExp: ["/project/uni-ai/*/**"] },
       // 是否反转 URL 排除规则的配置，即只有符合排除规则的文章才会添加引流工具
       reverse: false,
       // 是否添加微信公众号引流工具到移动端页面
