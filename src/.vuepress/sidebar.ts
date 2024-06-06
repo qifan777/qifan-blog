@@ -1,4 +1,4 @@
-import {sidebar} from "vuepress-theme-hope";
+import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar({
   "/project/post-letter/": [
@@ -52,9 +52,11 @@ export default sidebar({
       ],
     },
   ],
-  "/project/uni-ai/":[
-    {text:"项目介绍",link:'/project/uni-ai/'},
+  "/project/uni-ai/": [
+    { text: "项目介绍", link: "/project/uni-ai/" },
     { text: "快速上手", prefix: "get-started/", children: "structure" },
+    // { text: "使用教程", prefix: "use/", children: "structure" },
+    "use"
   ],
   "/knowledge/vite/": [
     { text: "Vite", link: "/knowledge/vite/" },
@@ -73,5 +75,4 @@ export default sidebar({
   ],
   "/knowledge/jpa/hibernate": "structure",
   "/tools/idea": "structure",
-  
 });
