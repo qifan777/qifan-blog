@@ -15,17 +15,21 @@
 
 ![知识库](image.png )
 
-[知识库使用教程](https://www.jarcheng.top/blog/project/uni-ai/get-started/use.html#%E7%9F%A5%E8%AF%86%E5%BA%93)
+[知识库使用教程](./use/README.md#知识库)
 
 ### 图片生成
 
 ![图片生成](image-4.png)
+
+[图片生成使用教程](./use/README.md#图片生成)
 
 ### 图片理解
 
 ![千问VL](image-1.png )
 
 ![智谱清言VL](image-2.png )
+
+[图片理解使用教程](./use/README.md#图片理解)
 
 ### 文本对话
 
@@ -34,6 +38,7 @@
 ## 项目安装
 
 [docker-compose方式快速安装](https://www.jarcheng.top/blog/project/uni-ai/get-started/docker-compose-run.html)
+
 [源码方式安装](https://www.jarcheng.top/blog/project/uni-ai/get-started/source-run.html)
 
 ## 项目结构
