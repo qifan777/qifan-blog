@@ -84,7 +84,7 @@ idea导入uni-ai。里面包含了uni-ai-admin和uni-ai-backend。
 
 ### 配置密钥
 
-[申请密钥](./use.md/#ai厂商密钥配置)完之后将相关信息填入`uni-ai-backend/server/src/main/resources/application.yml`。
+[申请密钥](../use/README.md#ai厂商密钥配置)完之后将相关信息填入`uni-ai-backend/server/src/main/resources/application.yml`。
 
 ### 运行后端服务
 

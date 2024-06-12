@@ -13,8 +13,8 @@ git clone  https://github.com/qifan777/uni-ai
 ## 运行DockerCompose
 
 ```shell
-cd uni/uni-ai-backend/scrips
-docker-compose up -d
+cd uni-ai/uni-ai-backend/scrips
+docker-compose up -dc
 ```
 
 ## 导入数据库
@@ -31,4 +31,4 @@ docker-compose up -d
 
 ## API-KEY配置
 
-请参考[API-KEY配置](./use.md/#ai厂商密钥配置)。
+请参考[API-KEY配置](../use/README.md#ai厂商密钥配置)。
