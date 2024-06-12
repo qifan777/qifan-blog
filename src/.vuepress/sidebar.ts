@@ -55,8 +55,12 @@ export default sidebar({
   "/project/uni-ai/": [
     { text: "项目介绍", link: "/project/uni-ai/" },
     { text: "快速上手", prefix: "get-started/", children: "structure" },
-    // { text: "使用教程", prefix: "use/", children: "structure" },
-    "use"
+    "use",
+  ],
+  "/project/spring-ai/": [
+    { text: "项目介绍", link: "" },
+    { text: "快速上手", prefix: "config/", children: "structure" },
+    { text: "消息发送", link: "chat" },
   ],
   "/knowledge/vite/": [
     { text: "Vite", link: "/knowledge/vite/" },
