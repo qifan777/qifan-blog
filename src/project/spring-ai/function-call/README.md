@@ -45,7 +45,7 @@
 
 1. 定义函数的入参和返回结果
 2. 实现`java.util.function.Function`表示它的一个可以被AI调用的函数
-3. 描述函数，SpringAi会自动将下面的Java注解转换成[`function`](#function-call)格式的描述
+3. 描述函数，SpringAi会自动将下面的Java注解转换成[function call](#function-call)格式的描述
     - `function.name`：`@Service`将该类注册为 spring bean，bean的名字会作为函数的名称。
     - `function.description`: `@Description`可以描述函数的用途
     - `function.parameters.properties.xxx`:  `@JsonProperty`描述参数的属性名称
