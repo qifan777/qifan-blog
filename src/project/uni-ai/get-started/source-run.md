@@ -17,7 +17,6 @@ git clone  https://github.com/qifan777/uni-ai
 redis-stack在redis的基础上增加了向量数据库的功能
 
 ```shell
-# todo 配置volume
 docker run -d --name redis-stack --restart=always  -v redis-data:/data -p 6379:6379 -p 8001:8001 -e REDIS_ARGS="--requirepass 123456" redis/redis-stack:latest
 ```
 
