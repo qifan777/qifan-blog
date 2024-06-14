@@ -62,6 +62,8 @@ export default sidebar({
     { text: "快速上手", prefix: "config/", children: "structure" },
     { text: "消息发送", link: "chat" },
     { text: "函数调用", link: "function-call" },
+    { text: "向量数据库", link: "vector-database" },
+
 
   ],
   "/knowledge/vite/": [

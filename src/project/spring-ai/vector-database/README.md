@@ -1,5 +1,15 @@
 # 向量数据库
 
+## 基础模型的接入
+
+本案例使用的是阿里的灵积AI服务请参考[灵积接入](../config/dash-scope.md)。
+
+其他AI厂商接入方式请参考下面的链接：
+[百度千帆](../config/qian-fan.md)
+[智谱清言](../config/zhi-pu.md)
+
+kimi和星火目前不支持文档嵌入。
+
 ## 安装RedisStack
 
 需要先禁用掉自己原本的redis，防止端口冲突。访问`localhost:8001`查看数据库的信息。用户名：`default`,密码：`123456`。
@@ -11,18 +21,18 @@ docker run -d --name redis-stack --restart=always  -v redis-data:/data -p 6379:6
 ## 引入依赖
 
 ```xml
-        <dependency>
-            <groupId>org.springframework.ai</groupId>
-            <artifactId>spring-ai-redis-store</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.ai</groupId>
-            <artifactId>spring-ai-tika-document-reader</artifactId>
-        </dependency>
+<dependency>
+    <groupId>org.springframework.ai</groupId>
+    <artifactId>spring-ai-redis-store</artifactId>
+</dependency>
+<dependency>
+    <groupId>redis.clients</groupId>
+    <artifactId>jedis</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.ai</groupId>
+    <artifactId>spring-ai-tika-document-reader</artifactId>
+</dependency>
 ```
 
 ## 配置连接
@@ -97,6 +107,10 @@ public class RedisVectorConfig {
 ```
 
 ## 文档查询
+
+调用`vectorStore.similaritySearch(query)`时同样会先把用户的提问给`EmbeddingModel`，将提问变成向量，然后与向量数据库中的文档向量进行相似度计算（cosine值）。
+
+要注意：此时向量数据库不会回答用户的提问。要回答用户的提问请参考后面的`RAG`
 
 ```java
 
