@@ -25,9 +25,6 @@ private final DashScopeAiChatModel dashScopeAiChatModel;
 需要注意`ChatResponse`来自`org.springframework.ai.chat.model`。
 
 ```java
-@RestController("message")
-@AllArgsConstructor
-public class AiMessageController {
     // AI模型基座，可以切换不同的AI厂商模型
     // 阿里灵积
     private final DashScopeAiChatModel dashScopeAiChatModel;
@@ -56,7 +53,6 @@ public class AiMessageController {
                 .call()
                 .content();
     }
-}
 ```
 
 响应结果
@@ -79,13 +75,7 @@ public class AiMessageController {
 ```
 
 ```java
-@RestController("message")
-@AllArgsConstructor
-public class AiMessageController {
-    // AI模型基座，可以切换不同的AI厂商模型
-    private final DashScopeAiChatModel dashScopeAiChatModel;
     private final ObjectMapper objectMapper;
-
     /**
      * 流式问答
      *
@@ -116,7 +106,6 @@ public class AiMessageController {
     public String toJson(ChatResponse chatResponse) {
         return objectMapper.writeValueAsString(chatResponse);
     }
-}
 ```
 
 可以看到接口流式的响应，并且系统指令生效，AI知道自己是一个Java助手。
