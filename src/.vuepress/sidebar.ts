@@ -63,8 +63,8 @@ export default sidebar({
     { text: "消息发送", link: "chat" },
     { text: "函数调用", link: "function-call" },
     { text: "向量数据库", link: "vector-database" },
-
-
+    { text: "RAG(检索增强生成)", link: "rag" },
+    'history',
   ],
   "/knowledge/vite/": [
     { text: "Vite", link: "/knowledge/vite/" },
