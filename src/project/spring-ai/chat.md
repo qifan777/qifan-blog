@@ -1,3 +1,6 @@
+---
+order: 3
+---
 # ChatClient发送消息
 
 下面是一个简单的ChatClient结合ChatModel的消息发送实例。
