@@ -1,5 +1,8 @@
 ---
-order: 1
+dir:
+    link: true
+    order: 3
+    collapsible: false
 ---
 
 # 使用教程

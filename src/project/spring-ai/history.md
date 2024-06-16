@@ -8,13 +8,13 @@ order: 4
 
 ## 基础模型的接入
 
-本案例使用的是阿里的灵积AI服务请参考[灵积接入](../config/dash-scope.md)。
+本案例使用的是阿里的灵积AI服务请参考[灵积接入](https://www.jarcheng.top/blog/project/spring-ai/config/dash-scope.html)。
 
 其他AI厂商接入方式请参考下面的链接：
-[百度千帆](../config/qian-fan.md)
-[智谱清言](../config/zhi-pu.md)
-[讯飞星火](../config/spark.md)
-[kimi](../config/kimi.md)
+[百度千帆](https://www.jarcheng.top/blog/project/spring-ai/config/qian-fan.html)
+[智谱清言](https://www.jarcheng.top/blog/project/spring-ai/config/zhi-pu.html)
+[讯飞星火](https://www.jarcheng.top/blog/project/spring-ai/config/spark.html)
+[kimi](https://www.jarcheng.top/blog/project/spring-ai/config/kimi.html)
 
 ## MessageChatMemoryAdvisor
 
@@ -23,8 +23,7 @@ order: 4
 历史消息的实现过程：
 
 1. 提供ChatMemory，通过会话id查找历史消息。下面的例子提供的是`InMemoryChatMemory`，内存存储。
-2. `MessageChatMemoryAdvisor`会在运行时调用`ChatMemory`，通过会话id查找历史消息。
-然后把消息列表拼接到历史的消息中。
+2. `MessageChatMemoryAdvisor`会在运行时调用`ChatMemory`，通过会话id查找历史消息。然后把消息列表拼接到历史的消息中。
 3. 发送消息给大模型得到答案
 
 ```java

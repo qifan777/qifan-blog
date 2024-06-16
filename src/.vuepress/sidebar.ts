@@ -52,21 +52,8 @@ export default sidebar({
       ],
     },
   ],
-  "/project/uni-ai/": [
-    { text: "项目介绍", link: "/project/uni-ai/" },
-    { text: "快速上手", prefix: "get-started/", children: "structure" },
-    "use",
-  ],
+  "/project/uni-ai/": 'structure',
   "/project/spring-ai/":"structure",
-  // "/project/spring-ai/": [
-  //   { text: "项目介绍", link: "/project/spring-ai/" },
-  //   { text: "快速上手", prefix: "config/", children: "structure" },
-  //   { text: "消息发送", link: "/project/spring-ai/chat" },
-  //   { text: "函数调用", link: "function-call" },
-  //   { text: "向量数据库", link: "vector-database" },
-  //   { text: "RAG(检索增强生成)", link: "rag" },
-  //   'history',
-  // ],
   "/knowledge/vite/": [
     { text: "Vite", link: "/knowledge/vite/" },
     {
