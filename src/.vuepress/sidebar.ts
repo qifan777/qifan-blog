@@ -52,8 +52,26 @@ export default sidebar({
       ],
     },
   ],
-  "/project/uni-ai/": 'structure',
-  "/project/spring-ai/":"structure",
+  "/project/uni-ai/": "structure",
+  "/project/spring-ai/": [
+    "intro",
+    {
+      text:'快速上手',
+      prefix:'config',
+      children:'structure',
+    },
+    {
+      text: "基础篇",
+      children: [
+        "chat",
+        "history",
+        "embedding",
+        "etl-pipeline",
+        "rag",
+        "function-call",
+      ],
+    },
+  ],
   "/knowledge/vite/": [
     { text: "Vite", link: "/knowledge/vite/" },
     {

@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 ---
 # 向量数据库
 
@@ -7,11 +7,11 @@ order: 6
 
 ## 基础模型的接入
 
-本案例使用的是阿里的灵积AI服务请参考[灵积接入](../config/dash-scope.md)。
+本案例使用的是阿里的灵积AI服务请参考[灵积接入](./config/dash-scope.md)。
 
 其他AI厂商接入方式请参考下面的链接：
-[百度千帆](../config/qian-fan.md)
-[智谱清言](../config/zhi-pu.md)
+[百度千帆](./config/qian-fan.md)
+[智谱清言](./config/zhi-pu.md)
 
 kimi和星火目前不支持文档嵌入。
 

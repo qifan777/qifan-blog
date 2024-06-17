@@ -7,7 +7,7 @@ order: 7
 
 ## 文档嵌入
 
-请参考[文档嵌入](../vector-database/README.md/#文档嵌入)，向数据库中插入一些自己的文档。
+请参考[文档嵌入](./vector-database.md#文档嵌入)，向数据库中插入一些自己的文档。
 
 ## QuestionAnswerAdvisor
 
