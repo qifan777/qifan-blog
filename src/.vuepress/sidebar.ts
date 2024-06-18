@@ -71,6 +71,11 @@ export default sidebar({
         "function-call",
       ],
     },
+    {
+      text:"聊天面板",
+      prefix:"chat-page",
+      children:"structure",
+    },
   ],
   "/knowledge/vite/": [
     { text: "Vite", link: "/knowledge/vite/" },
