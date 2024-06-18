@@ -39,39 +39,9 @@ mysqld --character-set-server=utf8mb4 \
 
 [国内jdk下载镜像](https://injdk.cn/)
 
-### gradle安装
-
-[gradle安装网址](https://gradle.org/releases/)下载最新版本的gradle，选择`download binary-only`。
-
-安装完配置gradle镜像。在`init.d`文件夹下新建`init.gradle`.
-
-```gradle
-allprojects {
-    repositories {
-        mavenLocal()
-        maven { url 'https://maven.aliyun.com/repository/public/' }
-        maven { url 'https://maven.aliyun.com/repository/spring/'}
-        maven { url 'https://maven.aliyun.com/repository/google/'}
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/'}
-        maven { url 'https://maven.aliyun.com/repository/spring-plugin/'}
-        maven { url 'https://maven.aliyun.com/repository/grails-core/'}
-        maven { url 'https://maven.aliyun.com/repository/apache-snapshots/'}
-        mavenCentral()
-    }
-}
-```
-
 ### 导入项目
 
 idea导入uni-ai。里面包含了uni-ai-admin和uni-ai-backend。
-
-首先需要在idea的settings-> build -> build tools -> gradle配置本地的gradle。
-
-![gradle配置](image.png)
-
-::: warning
-然后一定要关闭idea重启一下，要不然idea会自动下载gradle，而不是使用本地的下载完且配置好镜像的gradle。
-:::
 
 ### 配置数据库
 
