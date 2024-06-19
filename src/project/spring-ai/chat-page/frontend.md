@@ -1,5 +1,18 @@
 # 前端实现
 
+![聊天面板](image-2.png)
+前端的聊天面板组件是以`chat-view.vue`为核心，聊天面板的结构如下
+
+- 聊天面板
+  - 会话面板（左）
+    - 标题（上）
+    - 会话列表（中），进入页面的时候获取用户的会话列表使用`session-item`组件，该组件有删除按钮点击触发`handleDeleteSession`
+    - 创建会话按钮（下）, 触发点击事件调用`handleCreateSession`
+  - 消息面板（右）
+    - 会话详情（上），可编辑会话名称调用`handleUpdateSession`
+    - 消息列表（中），for循环遍历`activeSession`当前会话中的消息使用`message-row`组件展示文本消息、图片消息、语音消息
+    - 输入框使用（下），`message-input`组件
+
 ## 会话列表
 
 ![会话列表](image.png)

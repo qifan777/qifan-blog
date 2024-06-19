@@ -1,5 +1,33 @@
 # 后端实现
 
+后端实现会话和消息记录必然要先从建表开始，然后编写增删改查，最后实现一些功能。
+
+会话
+
+- 会话保存接口
+  - 会话保存dto
+- 会话列表接口
+  - 获取当前登录用户id作为查询条件
+  - 一对多关联获取会话内的消息
+- 会话删除接口
+  - 根据会话id列表批量删除
+  - 删除会话时，会话内的消息也一并级联删除
+- 会话id查询接口
+  - 一对多关联获取会话内的消息
+
+消息
+
+- 消息发送接口
+  - 消息保存dto（接收前端发送的消息）
+  - 消息实体内容设计，支持图片/语音/文字
+  - `MessageChatMemoryAdvisor`历史消息增强和消息自动保存，调用`AiMessageChatMemory`的`get`方法获取会话的历史消息和`add`方法保存消息。
+  - 使用`ChatClient`填写用户发送的消息（可能包含图片/语言），填写`MessageChatMemoryAdvisor`。最后发起流式请求，获取AI回复的消息。
+- 历史消息实现
+  - `add`方法，保存用户发送的消息和AI回复的消息。因为需要填写创建人id，创建人id是在请求里面存储的。保存的时候是在异步的线程里面，要模拟请求环境才能插入数据到数据库。
+  - `get`方法，获取会话历史消息
+  - `clear`方法，清空会话的历史消息
+  - 消息转换器，将消息实体转换为SpringAI的`Message`，将`Message`转换为消息实体。互相转换。
+
 ## 实体设计
 
 ### 消息实体设计
@@ -17,7 +45,7 @@ create table ai_message
     editor_id     varchar(32) not null,
     type          varchar(32) not null comment '消息类型(用户/ 助手/ 系统)',
     text_content  text        not null comment '消息内容',
-    medias        json        null,
+    medias        json        null comment '媒体内容如图片链接、语音链接',
     ai_session_id varchar(32) not null comment '会话id'
 );
 ```
