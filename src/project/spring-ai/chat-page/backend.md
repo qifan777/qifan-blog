@@ -144,28 +144,12 @@ public interface AiSession extends BaseEntity {
 @AllArgsConstructor
 public class AiMessageChatMemory implements ChatMemory {
     private final AiMessageRepository messageRepository;
-    private final AiSessionRepository sessionRepository;
-
+    
     /**
-     * 将用户发送的消息和AI回复的消息保存到数据库
-     *
-     * @param conversationId 会话id
-     * @param messages       org.springframework.ai.chat.messages.Message 用户发送的消息和AI回复的消息
+     * 不实现，手动前端发起请求保存用户的消息和大模型回复的消息
      */
     @Override
     public void add(String conversationId, List<Message> messages) {
-        List<AiMessage> aiMessageList = messages
-                .stream()
-                .map(message -> toAiMessage(message, conversationId))
-                .toList();
-        // 当前的现场处于异步状态，非没有servletRequest无法获取当前登录的用户信息。
-        // 模拟请求
-        RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(new MockHttpServletRequest()));
-        // 设置当前的用id
-        String userId = sessionRepository.findById(conversationId, AiSessionFetcher.$.creator()).orElseThrow().creator().id();
-        StpUtil.switchTo(userId);
-        // 保存到数据库，这样创建人和编辑人才有数据
-        messageRepository.saveEntities(aiMessageList);
     }
 
     /**
@@ -228,6 +212,17 @@ var messageChatMemoryAdvisor = new MessageChatMemoryAdvisor(chatMemory, input.ge
 public class AiMessageController {
     private final AiMessageChatMemory chatMemory;
     private final DashScopeAiChatModel dashScopeAiChatModel;
+    private final ObjectMapper objectMapper;
+    private final AiMessageRepository messageRepository;
+
+    /**
+     * 消息保存
+     * @param input 用户发送的消息/AI回复的消息
+     */
+    @PostMapping
+    public void save(@RequestBody AiMessageInput input) {
+        messageRepository.save(input.toEntity());
+    }
 
     /**
      *
@@ -257,10 +252,14 @@ public class AiMessageController {
                 .advisors(messageChatMemoryAdvisor)
                 .stream()
                 .content()
-                .map(chatResponse -> ServerSentEvent.builder(chatResponse)
+                .map(chatResponse -> ServerSentEvent.builder(toJson(chatResponse))
                         // 和前端监听的事件相对应
                         .event("message")
                         .build());
+    }
+    @SneakyThrows
+    public String toJson(ChatResponse response) {
+        return objectMapper.writeValueAsString(response);
     }
 }
 ```

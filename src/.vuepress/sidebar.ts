@@ -67,6 +67,7 @@ export default sidebar({
         "history",
         "embedding",
         "etl-pipeline",
+        'vector-database',
         "rag",
         "function-call",
       ],
@@ -75,6 +76,11 @@ export default sidebar({
       text:"聊天面板",
       prefix:"chat-page",
       children:"structure",
+    },
+    {
+      text:'知识库',
+      prefix:"knowledge",
+      children:'structure'
     },
   ],
   "/knowledge/vite/": [

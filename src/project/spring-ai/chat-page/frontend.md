@@ -102,6 +102,23 @@ onMounted(async () => {
 用户发送的逻辑，使用`sse.js`发送消息，并监听sse消息。
 
 ```ts
+// 回复消息的格式
+type ChatResponse = {
+  metadata: {
+    usage: {
+      totalTokens: number
+    }
+  }
+  result: {
+    metadata: {
+      finishReason: string
+    }
+    output: {
+      messageType: string
+      content: string
+    }
+  }
+}
 const handleSendMessage = async (message: { text: string; image: string }) => {
   if (!activeSession.value) {
     ElMessage.warning('请创建会话')
@@ -137,9 +154,24 @@ const handleSendMessage = async (message: { text: string; image: string }) => {
     method: 'POST'
   })
   evtSource.addEventListener('message', async (event: any) => {
-    responseMessage.value.textContent = event.data
-    // 非通义千问使用下面的消息拼接逻辑
-    // responseMessage.value.textContent += event.data
+    const response = JSON.parse(event.data) as ChatResponse
+    const finishReason = response.result.metadata.finishReason
+    if (response.result.output.content) {
+      // dashscope不需要累加回复结果
+      responseMessage.value.textContent = response.result.output.content
+      // responseMessage.value.textContent += response.result.output.content
+      // 滚动到底部
+      await nextTick(() => {
+        messageListRef.value?.scrollTo(0, messageListRef.value.scrollHeight)
+      })
+    }
+    if (finishReason && finishReason.toLowerCase() == 'stop') {
+      evtSource.close()
+      // 保存用户的提问
+      await api.aiMessageController.save({ body: chatMessage })
+      // 保存大模型的回复
+      await api.aiMessageController.save({ body: responseMessage.value })
+    }
   })
   // 调用stream，发起请求。
   evtSource.stream()
