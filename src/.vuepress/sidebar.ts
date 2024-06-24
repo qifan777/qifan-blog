@@ -77,11 +77,8 @@ export default sidebar({
       prefix:"chat-page",
       children:"structure",
     },
-    {
-      text:'知识库',
-      prefix:"knowledge",
-      children:'structure'
-    },
+    "knowledge",
+    "agent",
   ],
   "/knowledge/vite/": [
     { text: "Vite", link: "/knowledge/vite/" },
