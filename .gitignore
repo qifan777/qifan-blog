@@ -32,3 +32,4 @@ src/.vuepress/.temp/
 src/.vuepress/dist/
 /src/.vuepress/blog/
 /src/.vuepress/scripts/
+/.obsidian/
