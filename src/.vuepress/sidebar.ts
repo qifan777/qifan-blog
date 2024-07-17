@@ -79,6 +79,11 @@ export default sidebar({
     },
     "knowledge",
     "agent",
+    {
+      text:"知识图谱RAG",
+      prefix:"graph",
+      children:'structure'
+    }
   ],
   "/knowledge/vite/": [
     { text: "Vite", link: "/knowledge/vite/" },
