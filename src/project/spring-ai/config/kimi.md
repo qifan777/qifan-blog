@@ -11,8 +11,8 @@ order: 5
 
 ```xml
 <dependency>
-    <groupId>io.github.qifan777</groupId>
-    <artifactId>spring-ai-kimi-spring-boot-starter</artifactId>
+    <groupId>org.springframework.ai</groupId>
+    <artifactId>spring-ai-moonshot-spring-boot-starter</artifactId>
 </dependency>
 ```
 
@@ -24,19 +24,16 @@ order: 5
 spring:
   ai:
     # kimi
-    kimi:
+    moonshot:
       api-key: xxx
-      enabled: true
-      chat:
-        model: moonshot-v1-32k
 ```
 
 ## 使用
 
 ```java
-private final KimiAiChatModel kimiAiChatModel;
+private final MoonshotChatModel moonshotChatModel;
 ```
 
 ## 消息发送案例
 
-请参考[消息发送](../chat/README.md)
+请参考[消息发送](../chat.md)

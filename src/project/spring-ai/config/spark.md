@@ -45,4 +45,4 @@ private final SparkAiChatModel sparkAiChatModel;
 
 ## 消息发送案例
 
-请参考[消息发送](../chat/README.md)
+请参考[消息发送](../chat.md)

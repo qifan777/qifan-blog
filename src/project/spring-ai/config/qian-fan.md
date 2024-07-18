@@ -11,33 +11,30 @@ order: 4
 
 ```xml
 <dependency>
-    <groupId>io.github.qifan777</groupId>
+    <groupId>org.springframework.ai</groupId>
     <artifactId>spring-ai-qianfan-spring-boot-starter</artifactId>
 </dependency>
 ```
 
 ## 密钥配置
 
-[千帆 access-key和secret-key申请](https://console.bce.baidu.com/iam/#/iam/accesslist)
+[千帆 API Key和Secret Key申请](https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application)
 
 ```yml
 spring:
   ai:
     # 百度千帆
     qian-fan:
-      access-key: xxx
-      secret-key: xxx
-      enabled: true
-      chat:
-        model: ERNIE-4.0-8K
+      api-key: S4VE0FhsihqZtdoq4lKq8YWY
+      secret-key: Bt3agI6geFPGjLFlehe0qrNT9WfHlT2p
 ```
 
 ## 使用
 
 ```java
-private final QianFanAiChatModel qianFanAiChatModel;
+private final QianFanChatModel qianFanChatModel;
 ```
 
 ## 消息发送案例
 
-请参考[消息发送](../chat/README.md)
+请参考[消息发送](../chat.md)

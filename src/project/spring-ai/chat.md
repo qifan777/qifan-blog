@@ -32,13 +32,13 @@ private final DashScopeAiChatModel dashScopeAiChatModel;
     // 阿里灵积
     private final DashScopeAiChatModel dashScopeAiChatModel;
     // 讯飞星火
-    // private final SparkAiChatModel sparkAiChatModel;
+    private final SparkAiChatModel sparkAiChatModel;
     // 百度千帆
-    // private final QianFanAiChatModel qianFanAiChatModel;
+    private final QianFanChatModel qianFanChatModel;
     // Kimi
-    // private final KimiAiChatModel kimiAiChatModel;
+    private final MoonshotChatModel moonshotChatModel;
     // 智谱清言
-    // private final ZhiPuAiChatModel zhiPuAiChatModel;
+    private final ZhiPuAiChatModel zhiPuAiChatModel;
 
     /**
      * 非流式问答

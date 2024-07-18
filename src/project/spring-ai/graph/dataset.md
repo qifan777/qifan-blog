@@ -1,3 +1,6 @@
+---
+order: 1
+---
 # 数据集
 
 本项目使用的数据集是[美国证券交易委员会数据集](https://github.com/neo4j-examples/sec-edgar-notebooks/tree/main/data/sample)，将该项目的python技术栈`langchain`+`neo4j`转成java的`SpringDataNeo4j`+`SpringAI`。
