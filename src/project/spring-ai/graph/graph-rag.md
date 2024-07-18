@@ -129,14 +129,14 @@ MATCH (node)-[:PART_OF]->(f:Form),
     (f)<-[:FILED]-(com:Company),
     (com)<-[owns:OWNS_STOCK_IN]-(mgr:Manager)
 WITH node, score, mgr, owns, com
-    ORDER BY owns.shares DESC LIMIT 10
+    ORDER BY owns.shares DESC LIMIT 5
 WITH collect (
     mgr.name +
     " owns " + owns.shares + " of " + com.name +
     " at a value of $" + apoc.number.format(owns.value) + "."
 ) AS investment_statements, node, score
-RETURN apoc.text.join(investment_statements, "\n") +s
-    "\n" + node.text AS text
+RETURN "investors: \\n" + apoc.text.join(investment_statements, "\\n") +\s
+    "\\n" + node.text AS text
 ```
 
 1. **查询相似节点**
@@ -147,8 +147,8 @@ RETURN apoc.text.join(investment_statements, "\n") +s
     ![Chunk->Form<-Company<-Manager](image-1.png)
 3. **排序过滤**
     使用with语句可以将查询结果保存起来，然后使用order by和limit语句对结果进行排序和过滤。
-4. **拼接投资方信息**
-    使用`collect`函数将投资方信息转成文本列表，然后使用`apoc.text.join`将文本列表转成一段文本。
+4. **拼接投资方和Chunk信息**
+    使用`collect`函数将投资方信息转成文本列表，然后使用`apoc.text.join`将文本列表转成一段文本。包含了投资方信息和Chunk信息。
 
 ### Manager RAG实现
 

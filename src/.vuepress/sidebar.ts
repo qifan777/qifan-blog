@@ -56,9 +56,9 @@ export default sidebar({
   "/project/spring-ai/": [
     "intro",
     {
-      text:'快速上手',
-      prefix:'config',
-      children:'structure',
+      text: "快速上手",
+      prefix: "config",
+      children: "structure",
     },
     {
       text: "基础篇",
@@ -67,23 +67,24 @@ export default sidebar({
         "history",
         "embedding",
         "etl-pipeline",
-        'vector-database',
+        "vector-database",
         "rag",
         "function-call",
       ],
     },
     {
-      text:"聊天面板",
-      prefix:"chat-page",
-      children:"structure",
+      text: "聊天面板",
+      prefix: "chat-page",
+      children: "structure",
     },
+    "vision",
     "knowledge",
     "agent",
     {
-      text:"知识图谱RAG",
-      prefix:"graph",
-      children:'structure'
-    }
+      text: "知识图谱RAG",
+      prefix: "graph",
+      children: "structure",
+    },
   ],
   "/knowledge/vite/": [
     { text: "Vite", link: "/knowledge/vite/" },
