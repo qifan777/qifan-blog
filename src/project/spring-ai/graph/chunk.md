@@ -3,6 +3,61 @@ order: 2
 ---
 # Chunk构建
 
+## nero4j安装
+
+安装完neo4j访问`localhost:7474`, 默认的账号密码都是`neo4j`和`neo4j`。
+
+```shell
+docker run \
+    -d \
+    -p 7474:7474 -p 7687:7687 \
+    -v neo4j-data:/data -v neo4j-data:/plugins \
+    --name neo4j \
+    -e NEO4J_apoc_export_file_enabled=true \
+    -e NEO4J_apoc_import_file_enabled=true \
+    -e NEO4J_apoc_import_file_use__neo4j__config=true \
+    -e NEO4JLABS_PLUGINS=\[\"apoc\"\] \
+    -e NEO4J_dbms_security_procedures_unrestricted=apoc.\\\* \
+    neo4j
+```
+
+## 依赖
+
+```xml
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>easyexcel</artifactId>
+    <version>3.3.4</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-neo4j</artifactId>
+</dependency>
+```
+
+## 配置
+
+模型必须选上下文比较大的，下面这两个都可以，其他的ai厂家可以参考官网描述。
+
+```yml
+spring:
+  neo4j:
+    authentication:
+      username: neo4j
+      password: 12345678
+    uri: bolt://localhost:7687
+  ai:
+    dash-scope:
+      api-key: xxx
+      chat:
+        model: qwen-max-longcontext
+    moonshot:
+      api-key: xxx
+      chat:
+        options:
+          model: moonshot-v1-128k
+```
+
 ## 构建Chunk节点
 
 节点定义
