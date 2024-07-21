@@ -44,10 +44,23 @@ docker run -d --name redis-stack --restart=always  -v redis-data:/data -p 6379:6
 
 ```yml
 spring:
-  ai:
-    vectorstore:
-      redis:
-        uri: redis://default:123456@localhost:6379
+  data:
+    redis:
+      database: 0
+      timeout: 10s
+      lettuce:
+        pool:
+          # 连接池最大连接数
+          max-active: 200
+          # 连接池最大阻塞等待时间（使用负值表示没有限制）
+          max-wait: -1ms
+          # 连接池中的最大空闲连接
+          max-idle: 10
+          # 连接池中的最小空闲连接
+          min-idle: 0
+      repositories:
+        enabled: false
+      password: 123456
 ```
 
 ## 配置向量数据库
@@ -74,13 +87,15 @@ public class RedisVectorConfig {
      */
     @Bean
     public VectorStore vectorStore(DashScopeAiEmbeddingModel embeddingModel,
-                                   RedisVectorStoreProperties properties) {
-        var config = RedisVectorStore.RedisVectorStoreConfig
-                .builder()
-                .withURI(properties.getUri())
-                .withIndexName(properties.getIndex())
-                .withPrefix(properties.getPrefix()).build();
-        return new RedisVectorStore(config, embeddingModel, properties.isInitializeSchema());
+                                   RedisVectorStoreProperties properties,
+                                   RedisConnectionDetails redisConnectionDetails) {
+        RedisVectorStore.RedisVectorStoreConfig config = RedisVectorStore.RedisVectorStoreConfig.builder().withIndexName(properties.getIndex()).withPrefix(properties.getPrefix()).build();
+        return new RedisVectorStore(config, embeddingModel,
+                new JedisPooled(redisConnectionDetails.getStandalone().getHost(),
+                        redisConnectionDetails.getStandalone().getPort()
+                        , redisConnectionDetails.getUsername(),
+                        redisConnectionDetails.getPassword()),
+                properties.isInitializeSchema());
     }
 }
 ```

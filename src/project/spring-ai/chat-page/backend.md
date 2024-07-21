@@ -240,10 +240,11 @@ public class AiMessageController {
                 .user(promptUserSpec -> {
                     // AiMessageInput转成Message
                     Message message = AiMessageChatMemory.toSpringAiMessage(input.toEntity());
-                    if (!CollectionUtils.isEmpty(message.getMedia())) {
+                    if (message instanceof UserMessage userMessage &&
+                            !CollectionUtils.isEmpty(userMessage.getMedia())) {
                         // 用户发送的图片/语言
-                        Media[] medias = new Media[message.getMedia().size()];
-                        promptUserSpec.media(message.getMedia().toArray(medias));
+                        Media[] medias = new Media[userMessage.getMedia().size()];
+                        promptUserSpec.media(userMessage.getMedia().toArray(medias));
                     }
                     // 用户发送的文本
                     promptUserSpec.text(message.getContent());
