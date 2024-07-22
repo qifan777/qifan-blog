@@ -10,7 +10,7 @@ order: 1
 
 ![知识点](SrpingAI知识点.png)
 
-[源码地址](https://github.com/qifan777/KnowledgeBaseChatSpringAI)
+[源码地址](https://github.com/qifan777/dive-into-spring-ai)
 
 <BiliBili bvid="BV14y411q7RN" />
 
@@ -58,7 +58,7 @@ order: 1
 ### 1.clone代码
 
 ```shell
-git clone https://github.com/qifan777/KnowledgeBaseChatSpringAI
+git clone https://github.com/qifan777/dive-into-spring-ai
 ```
 
 ### 2. idea打开项目
