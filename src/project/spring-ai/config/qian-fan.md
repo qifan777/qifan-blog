@@ -25,8 +25,8 @@ spring:
   ai:
     # 百度千帆
     qian-fan:
-      api-key: S4VE0FhsihqZtdoq4lKq8YWY
-      secret-key: Bt3agI6geFPGjLFlehe0qrNT9WfHlT2p
+      api-key: xxx
+      secret-key: xxx
 ```
 
 ## 使用

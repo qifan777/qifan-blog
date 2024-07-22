@@ -12,7 +12,7 @@ export default navbar([
       { text: "ChatGPT助手", link: "chatgpt-assistant/" },
       { text: "起凡商城", link: "qifan-mall" },
       { text: "uni-ai", link: "uni-ai/intro" },
-      { text: "spring-ai", link: "spring-ai/intro" },
+      { text: "动手学SpringAI", link: "spring-ai/intro" },
     ],
   },
   {
