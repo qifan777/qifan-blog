@@ -85,6 +85,7 @@ export default sidebar({
       prefix: "graph",
       children: "structure",
     },
+    "file-chat"
   ],
   "/knowledge/vite/": [
     { text: "Vite", link: "/knowledge/vite/" },
