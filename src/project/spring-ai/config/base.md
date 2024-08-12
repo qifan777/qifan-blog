@@ -13,7 +13,7 @@ uni-ai-bom是我自己用spring-ai风格实现了国内的一些ai厂家的api�
 
     ```xml
         <spring-ai.version>1.0.0-SNAPSHOT</spring-ai.version>
-        <uni-ai.version>0.1.7</uni-ai.version>
+        <uni-ai.version>0.1.8</uni-ai.version>
     ```
 
 2. 依赖
