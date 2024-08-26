@@ -1,6 +1,7 @@
 import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
 import { readmorePlugin } from 'vuepress-plugin-readmore-popular-next'
+import { redirectPlugin } from '@vuepress/plugin-redirect'
 
 export default defineUserConfig({
   base: '/blog/',
@@ -10,6 +11,7 @@ export default defineUserConfig({
   description: "起凡Code闲聊",
   theme,
   plugins: [
+    redirectPlugin(),
     readmorePlugin({
       // 已申请的博客 ID
       blogId: '35697-0711444927073-432',

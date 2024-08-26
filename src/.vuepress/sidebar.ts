@@ -52,7 +52,6 @@ export default sidebar({
       ],
     },
   ],
-  "/project/uni-ai/": "structure",
   "/project/spring-ai/": [
     "intro",
     {
@@ -87,6 +86,7 @@ export default sidebar({
     },
     "file-chat"
   ],
+  "/project/mystery-box": 'structure',
   "/knowledge/vite/": [
     { text: "Vite", link: "/knowledge/vite/" },
     {

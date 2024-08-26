@@ -76,6 +76,7 @@ export default hopeTheme({
       // katex: true,
       mark: true,
       mermaid: true,
+      markmap: true,
       playground: {
         presets: ["ts", "vue"],
       },
