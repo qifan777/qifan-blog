@@ -127,7 +127,7 @@ const submit = () => {
 4. 地址解析并入库
 
 ```java
-@PostMapping("save")
+    @PostMapping("save")
     public String save(@RequestBody @Validated AddressInput addressInput) {
         if (StringUtils.hasText(addressInput.getId())) {
             Address address = addressRepository.findById(addressInput.getId(), AddressRepository.COMPLEX_FETCHER_FOR_FRONT).orElseThrow(() -> new BusinessException("数据不存在"));

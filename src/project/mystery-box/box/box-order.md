@@ -1,9 +1,11 @@
 ---
 order: 3
 ---
-# 订单
+# 提交订单
 
-![订单创建](../image-4.png =x500)
+![订单创建（图1）](../image-4.png =x500)
+
+页面：*box-order-create.vue*
 
 ## 表设计
 
@@ -60,7 +62,7 @@ create table mystery_box_order_item
 
 基础订单里面存储的是地址的快照，而不是地址id。之所以能存储优惠券id是因为优惠券一般不会修改，只会作废下线再生成新的优惠券。
 
-除了盲盒订单之外，VIP订单也用到了基础订单，所以这边`type`字段可以标识基础订单是来自于哪个业务。
+除了盲盒订单之外，[VIP订单](../vip.md)也用到了基础订单，所以这边`type`字段可以标识基础订单是来自于哪个业务。
 
 除了理解字段外，可空性也比较重要。像有些订单不需要发货走线下自然就不会用到地址信息和物流单号，有些订单不需要优惠券，但是支付信息是必须要的。
 
@@ -83,7 +85,7 @@ create table base_order
     comment '基础订单';
 ```
 
-### 支付详情
+## 支付详情
 
 支付详情在创建订单的时候就有了，此时支付时间和外系统交易订单号还是为空的状态。
 
@@ -110,4 +112,273 @@ create table payment
     trade_no       varchar(36)    null comment '外系统交易订单号'
 )
     comment '支付详情';
+```
+
+## 地址选择
+
+点选择地址时跳转到[地址列表](../address/address-list.md)，并携带参数`from`标识跳转来源。
+
+当用户在地址列表页选择完后，地址列表页会发送`address`事件，该事件携带了用户选择的地址详情。因此需要在当前页面监听`address`事件。
+
+:::tabs
+
+@tab html
+
+```html
+<template>
+  <div class="box-order-create" v-if="payment">
+    <div class="box-order">
+        <!-- 忽略... -->
+      <nut-cell-group class="cells">
+        <nut-cell
+          is-link
+          center
+          @click="switchPage('/pages/address/address-list?from=order')"
+        >
+          <template #icon>
+            <image
+              class="icon"
+              src="@/assets/icons/local.png"
+              mode="widthFix"
+            ></image>
+          </template>
+          <template #title>
+            <address-row
+              :address="chosenAddress"
+              v-if="chosenAddress"
+            ></address-row>
+          </template>
+          <template #desc v-if="!chosenAddress"> 请选择地址</template>
+          <template #link>
+            <rect-right></rect-right>
+          </template>
+        </nut-cell>
+        <!-- 忽略... -->
+      </nut-cell-group>
+    </div>
+    <!-- 忽略... -->
+  </div>
+</template>
+```
+
+@tab ts
+
+监听`address`事件将地址详情赋值给`chosenAddress`。由于地址会影响运费，调用`calculate`重新[计算价格](#计算价格)
+
+```ts
+type Address = AddressDto["AddressRepository/COMPLEX_FETCHER_FOR_FRONT"];
+const chosenAddress = ref<Address>();
+Taro.eventCenter.on("address", (value: Address) => {
+  chosenAddress.value = value;
+  order.value.baseOrder.addressId = value.id;
+  calculate();
+});
+
+```
+
+:::
+
+## 优惠券选择
+
+点选择优惠券时跳转到[优惠券列表](../coupon/coupon-user.md)，并携带参数`amount`和`id`，详细内容请参考优惠券列表页面。
+
+当用户在优惠券列表页选择完后，优惠券列表页会发送`coupon`事件，该事件携带了用户选择的优惠券详情，因此需要在当前页面监听`coupon`事件。
+
+:::tabs
+@tab html
+
+```html
+<template>
+  <div class="box-order-create" v-if="payment">
+    <div class="box-order">
+        <!-- 忽略... -->
+      <nut-cell-group class="cells">
+        <nut-cell
+          is-link
+          center
+          @click="
+            switchPage(
+              `/pages/coupon/index?amount=${payment.productAmount}&id=${chosenCoupon?.id}`,
+            )
+          "
+        >
+          <template #icon>
+            <image class="icon" src="@/assets/icons/coupon.png"></image>
+          </template>
+          <template #title>
+            {{ chosenCoupon?.coupon.name }}
+          </template>
+          <template #desc v-if="!chosenCoupon"> 请选择优惠券 </template>
+          <template #link>
+            <rect-right></rect-right>
+          </template>
+        </nut-cell>
+        <!-- 忽略... -->
+      </nut-cell-group>
+    </div>
+    <!-- 忽略... -->
+  </div>
+</template>
+```
+
+@tab ts
+
+监听`coupon`事件将地址详情赋值给`chosenCoupon`。由于优惠券会影响价格，调用`calculate`重新[计算价格](#计算价格)
+
+```ts
+type CouponUserRel =
+  CouponUserRelDto["CouponUserRelRepository/COMPLEX_FETCHER_FOR_FRONT"];
+const chosenCoupon = ref<CouponUserRel>();
+Taro.eventCenter.on("coupon", (couponUserRel?: CouponUserRel) => {
+  chosenCoupon.value = couponUserRel;
+  order.value.baseOrder.couponUserId = couponUserRel?.id;
+  calculate();
+});
+```
+
+:::
+
+## 计算价格
+
+- 累加盲盒价格得到商品总价
+- [优惠券计算](../coupon/coupon.md#优惠券计算)得到优惠价格
+- [运费计算](../carriage-template.md#运费计算)得到运费价格
+- [vip计算](../vip.md#vip折扣计算)得到vip价格
+
+:::tabs
+@tab html
+
+```html
+<template>
+  <div class="box-order-create" v-if="payment">
+    <div class="box-order">
+      <!-- 忽略... -->
+      <nut-cell-group class="summary">
+        <nut-cell title="盲盒总价">
+          <template #desc>
+            <div class="value">￥{{ payment.productAmount }}</div>
+          </template>
+        </nut-cell>
+        <nut-cell title="运费">
+          <template #desc>
+            <div class="value">￥{{ payment.deliveryFee }}</div>
+          </template>
+        </nut-cell>
+        <nut-cell title="优惠券">
+          <template #desc>
+            <div class="value">-￥{{ payment.couponAmount }}</div>
+          </template>
+        </nut-cell>
+        <nut-cell title="会员优惠">
+          <template #desc>
+            <div class="value">-￥{{ payment.vipAmount }}</div>
+          </template>
+        </nut-cell>
+      </nut-cell-group>
+      <!-- 忽略... -->
+    </div>
+  </div>
+</template>
+```
+
+@tab ts
+
+```ts
+const payment = ref<PaymentPriceView>();
+const calculate = async () => {
+  payment.value = await api.mysteryBoxOrderForFrontController.calculate({
+    body: order.value,
+  });
+};
+```
+
+@tab java
+
+`MysteryBoxOrderService`
+
+```java
+    public PaymentPriceView calculate(MysteryBoxOrderInput mysteryBoxOrderInput) {
+        var baseOrder = mysteryBoxOrderInput.getBaseOrder();
+        Payment produce = PaymentDraft.$.produce(draft -> {
+            draft.setProductAmount(BigDecimal.ZERO)
+                    .setDeliveryFee(BigDecimal.ZERO)
+                    .setVipAmount(BigDecimal.ZERO)
+                    .setCouponAmount(BigDecimal.ZERO);
+            BigDecimal totalPrice = BigDecimal.ZERO;
+            for (var item : mysteryBoxOrderInput.getItems()) {
+                MysteryBox product = Optional.ofNullable(jSqlClient.findById(MysteryBox.class, item.getMysteryBoxId()))
+                        .orElseThrow(() -> new BusinessException(ResultCode.NotFindError, "盲盒不存在"));
+                BigDecimal price = product.price().multiply(BigDecimal.valueOf(item.getMysteryBoxCount()));
+                totalPrice = totalPrice.add(price);
+            }
+            // 计算商品总价
+            draft.setProductAmount(totalPrice);
+            // 计算优惠券
+            draft.setCouponAmount(couponService.calculate(baseOrder.getCouponUserId(), totalPrice));
+            // 计算运费
+            draft.setDeliveryFee(carriageTemplateService.calculate(baseOrder.getAddressId(), totalPrice));
+            // 计算VIP优惠价格
+            draft.setVipAmount(vipService.calculate(totalPrice));
+            // 计算实际支付价格
+            draft.setPayAmount(
+                    draft.productAmount()
+                            .add(draft.deliveryFee())
+                            .subtract(draft.couponAmount())
+                            .subtract(draft.vipAmount())
+            );
+        });
+        return new PaymentPriceView(produce);
+    }
+```
+
+:::
+
+## 创建订单
+
+```java
+    public String create(MysteryBoxOrderInput mysteryBoxOrderInput) {
+        String orderId = IdUtil.fastSimpleUUID();
+        PaymentPriceView calculated = calculate(mysteryBoxOrderInput);
+        // 支付详情
+        Payment payment = PaymentDraft.$.produce(
+                calculated.toEntity(),
+                paymentDraft -> paymentDraft
+                        .setId(orderId)
+                        .setPayType(DictConstants.PayType.WE_CHAT_PAY));
+        Address address = addressRepository
+                .findUserAddressById(mysteryBoxOrderInput.getBaseOrder().getAddressId())
+                .orElseThrow(() -> new BusinessException("地址不存在"));
+
+        MysteryBoxOrder entity = Objects.createMysteryBoxOrder(mysteryBoxOrderInput
+                        .toEntity(),
+                draft -> {
+                    // 设置订单项关联的订单id，并且设置盲盒快照
+                    draft.setItems(draft
+                            .items()
+                            .stream()
+                            .map(item -> Objects.createMysteryBoxOrderItem(item, mysteryBoxOrderItemDraft -> {
+                                MysteryBox box = mysteryBoxRepository
+                                        .findById(item.mysteryBoxId(), MysteryBoxRepository.COMPLEX_FETCHER_FOR_FRONT)
+                                        .orElseThrow(() -> new BusinessException(ResultCode.NotFindError, "盲盒不存在"));
+                                mysteryBoxOrderItemDraft.setMysteryBoxOrderId(orderId)
+                                        // 盲盒快照，购买时的盲盒详情存入
+                                        .setMysteryBox(new MystryBoxView(box));
+                            }))
+                            .toList()
+                    );
+                    // 设置订单的id和状态
+                    draft.setId(orderId)
+                            .setStatus(DictConstants.ProductOrderStatus.TO_BE_PAID);
+                    // 设置基础订单
+                    draft.baseOrder()
+                            .setId(orderId)
+                            .setType(DictConstants.OrderType.PRODUCT_ORDER)
+                            .setPayment(payment)
+                            // 地址快照
+                            .setAddress(new AddressView(address));
+                });
+        // 同时创建mysteryBoxOrder, mysteryBoxOrderItem, baseOrder, payment
+        MysteryBoxOrder save = mysteryBoxOrderRepository.save(entity);
+        return save.id();
+    }
 ```
