@@ -150,7 +150,7 @@ const handleSubmit = () => {
 
 ### 订单创建
 
-创建订单主要是创建三个对象: 支付详情（`payment`）、基础订单(`baseOrder`)、vip订单(`vip_order`)。可以参考[盲盒订单创建](../box/box-order.md)过程理解支付详情和基础订单。
+创建订单主要是创建三个对象: 支付详情（`payment`）、基础订单(`baseOrder`)、vip订单(`vip_order`)。可以参考[盲盒订单创建](./box/box-order.md)过程理解支付详情和基础订单。
 
 支付详情中只需要填写商品总价即vip套餐的价格即可，因此这边单独写了一个方法`initPayment`创建支付详情。
 
