@@ -20,7 +20,7 @@ projects:
 
   - icon: /assets/icon/microservice.png
     name: 多模块微服务实战
-    desc: 用maven构建多模块的项目，每个项目采用六边形领域驱动架构。最后用docker部署
+    desc: 用maven构建多模块的项目，每个项目采用六边形领域驱动架构，最后用docker部署
     link: /project/microservice-practice/book.html
 
   - icon: /assets/icon/shop.png
@@ -28,10 +28,9 @@ projects:
     desc: 全栈项目，电商经典业务商品规格，优惠券，订单状态机，支付，拉新营销等等
     link: /project/qifan-mall/
 
-  - icon: /assets/icon/uni-ai.png
-    name: uni-ai
-    desc: 统一的界面集成了百度千帆/阿里灵积/讯飞星火/智谱清言/Kimi/OpenAI，有文本聊天，图片理解，预置提示词，知识库，图片生成等功能。
-    link: /project/uni-ai/
+  - name: dive-into-spring-ai
+    desc: 《动手学SpringAI》SSE流/Agent智能体/知识图谱RAG/FunctionCall/历史消息/图片生成/图片理解/Embedding/向量库
+    link: /project/spring-ai/
 
 footer: 联系方式：ljc666max
 ---
