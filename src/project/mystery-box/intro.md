@@ -146,6 +146,7 @@ markmap:
 2. 配置微信支付/小程序/阿里云oss/腾讯地图apiKey
 3. 修改`application-dev.yml`中`mysql`和`redis`为你自己的密码
 4. 启动`ServerApplication`
+5. target/generated-sources/annotations右键mark directory as/generated source root
 
 ### 后台管理启动
 

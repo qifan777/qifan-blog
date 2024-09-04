@@ -306,9 +306,9 @@ const calculate = async () => {
                     .setCouponAmount(BigDecimal.ZERO);
             BigDecimal totalPrice = BigDecimal.ZERO;
             for (var item : mysteryBoxOrderInput.getItems()) {
-                MysteryBox product = Optional.ofNullable(jSqlClient.findById(MysteryBox.class, item.getMysteryBoxId()))
+                MysteryBox mysteryBox = mysteryBoxRepository.findById(item.getMysteryBoxId())
                         .orElseThrow(() -> new BusinessException(ResultCode.NotFindError, "盲盒不存在"));
-                BigDecimal price = product.price().multiply(BigDecimal.valueOf(item.getMysteryBoxCount()));
+                BigDecimal price = mysteryBox.price().multiply(BigDecimal.valueOf(item.getMysteryBoxCount()));
                 totalPrice = totalPrice.add(price);
             }
             // 计算商品总价
@@ -344,11 +344,10 @@ const calculate = async () => {
                 calculated.toEntity(),
                 paymentDraft -> paymentDraft
                         .setId(orderId)
-                        .setPayType(DictConstants.PayType.WE_CHAT_PAY));
+                        .setPayType(PayType.WE_CHAT_PAY));
         Address address = addressRepository
                 .findUserAddressById(mysteryBoxOrderInput.getBaseOrder().getAddressId())
                 .orElseThrow(() -> new BusinessException("地址不存在"));
-
         MysteryBoxOrder entity = Objects.createMysteryBoxOrder(mysteryBoxOrderInput
                         .toEntity(),
                 draft -> {
@@ -368,17 +367,19 @@ const calculate = async () => {
                     );
                     // 设置订单的id和状态
                     draft.setId(orderId)
-                            .setStatus(DictConstants.ProductOrderStatus.TO_BE_PAID);
+                            .setStatus(ProductOrderStatus.TO_BE_PAID);
                     // 设置基础订单
                     draft.baseOrder()
                             .setId(orderId)
-                            .setType(DictConstants.OrderType.PRODUCT_ORDER)
+                            .setType(OrderType.PRODUCT_ORDER)
                             .setPayment(payment)
                             // 地址快照
                             .setAddress(new AddressView(address));
                 });
         // 同时创建mysteryBoxOrder, mysteryBoxOrderItem, baseOrder, payment
         MysteryBoxOrder save = mysteryBoxOrderRepository.save(entity);
+        // 优惠券设置为已使用
+        couponService.changeStatus(mysteryBoxOrderInput.getBaseOrder().getCouponUserId(), CouponUseStatus.USED);
         return save.id();
     }
 ```
