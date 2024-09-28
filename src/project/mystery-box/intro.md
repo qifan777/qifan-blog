@@ -17,32 +17,6 @@ order: 1
 
 ![](image-4.png =x500)
 
-<!-- ![地址列表](image-5.png =x500)
-
-![长按地址-复制、设置默认](image-6.png =x500)
-
-![地址保存](image-8.png =x500)
-
-![地点选择](image-7.png =x500)
-
-![优惠券选择](image-9.png =x500)
-
-![选择地址和优惠券后的订单提交](image-10.png =x500)
-
-![订单详情（可以支付或者取消订单）](image-11.png =x500)
-
-![订单列表](image-12.png =x500)
-
-![会员服务](image-13.png =x500)
-
-![会员套餐](image-14.png =x500)
-
-![个人页面](image-15.png =x500)
-
-![个人资料](image-16.png =x500)
-
-![问题反馈](image-17.png =x500) -->
-
 ## 功能点
 
 ````markmap
@@ -126,6 +100,8 @@ markmap:
 | LodashJs       | JS各种常用的工具方法                                                       | <https://www.lodashjs.com/>            |
 
 ## 运行
+
+源码地址: [https://github.com/qifan777/mystery-box](https://github.com/qifan777/mystery-box)
 
 ### 环境
 

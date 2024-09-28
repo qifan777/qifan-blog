@@ -7,13 +7,10 @@ order: 1
 
 spring-ai-bom是spring-ai官方的依赖统一管理。
 
-uni-ai-bom是我自己用spring-ai风格实现了国内的一些ai厂家的api并封装成starter。
-
 1. 版本号
 
     ```xml
-        <spring-ai.version>1.0.0-SNAPSHOT</spring-ai.version>
-        <uni-ai.version>0.1.8</uni-ai.version>
+        <spring-ai.version>1.0.0-M2</spring-ai.version>
     ```
 
 2. 依赖
@@ -25,13 +22,6 @@ uni-ai-bom是我自己用spring-ai风格实现了国内的一些ai厂家的api�
                     <groupId>org.springframework.ai</groupId>
                     <artifactId>spring-ai-bom</artifactId>
                     <version>${spring-ai.version}</version>
-                    <type>pom</type>
-                    <scope>import</scope>
-                </dependency>
-                <dependency>
-                    <groupId>io.github.qifan777</groupId>
-                    <artifactId>uni-ai-bom</artifactId>
-                    <version>${uni-ai.version}</version>
                     <type>pom</type>
                     <scope>import</scope>
                 </dependency>

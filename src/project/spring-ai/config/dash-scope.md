@@ -10,10 +10,11 @@ order: 2
 ## 依赖配置
 
 ```xml
-    <dependency>
-        <groupId>io.github.qifan777</groupId>
-        <artifactId>spring-ai-dashscope-spring-boot-starter</artifactId>
-    </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud.ai</groupId>
+            <artifactId>spring-ai-alibaba-starter</artifactId>
+            <version>${spring-ai.version}</version>
+        </dependency>
 ```
 
 ## 密钥配置
@@ -26,15 +27,15 @@ spring:
     # 阿里灵积
     dash-scope:
       api-key: xxx
-      enabled: true
       chat:
-        model: qwen-max
+        options:
+          model: qwen-max
 ```
 
 ## 使用
 
 ```java
-private final DashScopeAiChatModel dashScopeAiChatModel;
+private final ChatModel chatModel;
 ```
 
 ## 消息发送案例

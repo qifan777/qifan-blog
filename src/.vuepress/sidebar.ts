@@ -52,6 +52,7 @@ export default sidebar({
       ],
     },
   ],
+  "/project/uni-ai/": "structure",
   "/project/spring-ai/": [
     "intro",
     {
