@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 3
 ---
 # 嵌入模型
 
@@ -11,7 +11,7 @@ order: 5
 
 ## 使用嵌入模型
 
-请参考[基础配置](./config/base.md)。本例使用的是阿里嵌入模型。
+请参考[基础配置](../config/base.md)。本例使用的是阿里嵌入模型。
 
 选择模型
 
@@ -19,23 +19,23 @@ order: 5
     # 阿里灵积
     dash-scope:
       api-key: xxx
-      enabled: true
       chat:
-        model: qwen-max
+        options:
+          model: qwen-max
       embedding:
-        # 嵌入模型
-        model: text-embedding-v2
+        options:
+          model: text-embedding-v2
 ```
 
 文本嵌入
 
 ```java
     // 阿里嵌入模型
-    private final DashScopeAiEmbeddingModel embeddingModel;
+    private final EmbeddingModel embeddingModel;
 
     public void embeddingTest() {
         // 文本嵌入
-        List<Double> embed = embeddingModel.embed("你好，我的名字是起凡");
+        float[] embed = embeddingModel.embed("你好，我的名字是起凡");
         log.info("文本转换得到的向量: {}", embed);
     }
 ```

@@ -1,3 +1,6 @@
+---
+order: 6
+---
 # 知识库
 
 ## 前端实现
@@ -90,7 +93,7 @@ public class AiMessageParams {
 
 ### QuestionAnswerAdvisor
 
-之前已经介绍过[RAG](./rag.md)，请参考之前的教程。
+之前已经介绍过[RAG](./basic/rag.md)，请参考之前的教程。
 
 ```java
 

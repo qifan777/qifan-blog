@@ -53,40 +53,7 @@ export default sidebar({
     },
   ],
   "/project/uni-ai/": "structure",
-  "/project/spring-ai/": [
-    "intro",
-    {
-      text: "快速上手",
-      prefix: "config",
-      children: "structure",
-    },
-    {
-      text: "基础篇",
-      children: [
-        "chat",
-        "history",
-        "embedding",
-        "etl-pipeline",
-        "vector-database",
-        "rag",
-        "function-call",
-      ],
-    },
-    {
-      text: "聊天面板",
-      prefix: "chat-page",
-      children: "structure",
-    },
-    "vision",
-    "knowledge",
-    "agent",
-    {
-      text: "知识图谱RAG",
-      prefix: "graph",
-      children: "structure",
-    },
-    "file-chat"
-  ],
+  "/project/spring-ai/": 'structure',
   "/project/mystery-box": 'structure',
   "/knowledge/vite/": [
     { text: "Vite", link: "/knowledge/vite/" },

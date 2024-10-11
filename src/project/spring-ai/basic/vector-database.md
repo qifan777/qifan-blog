@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 5
 ---
 # 向量数据库
 
@@ -7,13 +7,7 @@ order: 7
 
 ## 基础模型的接入
 
-本案例使用的是阿里的灵积AI服务请参考[灵积接入](./config/dash-scope.md)。
-
-其他AI厂商接入方式请参考下面的链接：
-[百度千帆](./config/qian-fan.md)
-[智谱清言](./config/zhi-pu.md)
-
-kimi和星火目前不支持文档嵌入。
+本案例使用的是阿里的灵积AI服务请参考[灵积接入](../config/dash-scope.md)。
 
 ## 安装RedisStack
 
@@ -86,7 +80,7 @@ public class RedisVectorConfig {
      * @return vectorStore 向量数据库
      */
     @Bean
-    public VectorStore vectorStore(DashScopeAiEmbeddingModel embeddingModel,
+    public VectorStore vectorStore(EmbeddingModel embeddingModel,
                                    RedisVectorStoreProperties properties,
                                    RedisConnectionDetails redisConnectionDetails) {
         RedisVectorStore.RedisVectorStoreConfig config = RedisVectorStore.RedisVectorStoreConfig.builder().withIndexName(properties.getIndex()).withPrefix(properties.getPrefix()).build();
@@ -102,7 +96,7 @@ public class RedisVectorConfig {
 
 ## 文档嵌入
 
-在上面的`VectorStore`配置中我们提供了`DashScopeAiEmbeddingModel`，调用`vectorStore.add(splitDocuments)`底层会把文档给`DashScopeAiEmbeddingModel`把文本变成向量然后再存入向量数据库。
+在上面的`VectorStore`配置中我们提供了`EmbeddingModel`，调用`vectorStore.add(splitDocuments)`底层会把文档给`EmbeddingModel`把文本变成向量然后再存入向量数据库。
 
 ```java
     private final VectorStore vectorStore;

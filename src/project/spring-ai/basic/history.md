@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 2
 ---
 # 对话记录（内存存储）
 
@@ -8,13 +8,7 @@ order: 4
 
 ## 基础模型的接入
 
-本案例使用的是阿里的灵积AI服务请参考[灵积接入](./config/dash-scope.md)。
-
-其他AI厂商接入方式请参考下面的链接：
-[百度千帆](./config/qian-fan.md)
-[智谱清言](./config/zhi-pu.md)
-[讯飞星火](./config/spark.md)
-[kimi](./config/kimi.md)
+本案例使用的是阿里的灵积AI服务请参考[灵积接入](../config/dash-scope.md)。
 
 ## MessageChatMemoryAdvisor
 
@@ -29,7 +23,7 @@ order: 4
 ```java
     // AI模型基座，可以切换不同的AI厂商模型
     // 阿里灵积
-    private final DashScopeAiChatModel dashScopeAiChatModel;
+    private final ChatModel chatModel;
     // 模拟数据库存储会话和消息
     private final ChatMemory chatMemory = new InMemoryChatMemory();
     /**
@@ -47,7 +41,7 @@ order: 4
         // 2. 传入会话id，MessageChatMemoryAdvisor会根据会话id去查找消息。
         // 3. 只需要携带最近10条消息
         var messageChatMemoryAdvisor = new MessageChatMemoryAdvisor(chatMemory, sessionId, 10);
-        return ChatClient.create(dashScopeAiChatModel).prompt()
+        return ChatClient.create(chatModel).prompt()
                 .user(prompt)
                 // MessageChatMemoryAdvisor会在消息发送给大模型之前，从ChatMemory中获取会话的历史消息，
                 // 然后一起发送给大模型。

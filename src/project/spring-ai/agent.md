@@ -1,3 +1,6 @@
+---
+order: 7
+---
 # Agent（智能体）
 
 agent实际上也是一种`Function call`但是它内部还包含了一些`Function call`也就是`tool`。在`Function Call`中可以编写数据库查询，或者调用其他接口。也就是AI的记忆部分了。
@@ -63,7 +66,7 @@ public abstract class AbstractAgent<Req, Resp> implements Function<Req, Resp> {
      *
      * @param chatModel 聊天模型
      */
-    public AbstractAgent(DashScopeAiChatModel chatModel) {
+    public AbstractAgent(ChatModel chatModel) {
         this.client = ChatClient
                 .builder(chatModel)
                 .defaultFunctions(getFunctions())
@@ -103,7 +106,7 @@ public abstract class AbstractAgent<Req, Resp> implements Function<Req, Resp> {
 public class ComputerAssistant extends AbstractAgent<ComputerAssistant.Request, String> {
 
 
-    protected ComputerAssistant(DashScopeAiChatModel chatModel) {
+    protected ComputerAssistant(ChatModel chatModel) {
         super(chatModel);
     }
 
@@ -171,7 +174,7 @@ public class ComputerAssistant extends AbstractAgent<ComputerAssistant.Request, 
             functionBeanNames = new String[beansWithAnnotation.keySet().size()];
             functionBeanNames = beansWithAnnotation.keySet().toArray(functionBeanNames);
         }
-        return ChatClient.create(dashScopeAiChatModel).prompt()
+        return ChatClient.create(chatModel).prompt()
                 .user(promptUserSpec -> toPrompt(promptUserSpec, input.getMessage()))
                 // agent列表
                 .functions(functionBeanNames)

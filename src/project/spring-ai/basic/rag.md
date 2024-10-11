@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 6
 ---
 # RAG(检索增强生成)
 
@@ -23,6 +23,7 @@ order: 7
 对比`RAG`的提问过程可以发现多了提示词模板和向量数据库查询的过程。
 
 ```java
+    private final ChatModel chatModel;
     private final VectorStore vectorStore;
     /**
      * 从向量数据库中查找文档，并将查询的文档作为上下文回答。
@@ -40,7 +41,7 @@ order: 7
                 ---------------------
                 给定的上下文和提供的历史信息，而不是事先的知识，回复用户的意见。如果答案不在上下文中，告诉用户你不能回答这个问题。
                 """;
-        return ChatClient.create(dashScopeAiChatModel).prompt()
+        return ChatClient.create(chatModel).prompt()
                 .user(prompt)
                 // 2. QuestionAnswerAdvisor会在运行时替换模板中的占位符`question_answer_context`，替换成向量数据库中查询到的文档。此时的query=用户的提问+替换完的提示词模板;
                 .advisors(new QuestionAnswerAdvisor(vectorStore, SearchRequest.defaults(), promptWithContext))

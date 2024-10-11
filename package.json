@@ -26,6 +26,7 @@
     "vuepress-theme-hope": "2.0.0-rc.20"
   },
   "dependencies": {
-    "mermaid": "^10.8.0"
+    "mermaid": "^10.8.0",
+    "qifan-blog": "file:"
   }
 }

@@ -1,3 +1,6 @@
+---
+order: 5
+---
 # 图片理解
 
 ## 模型配置
@@ -10,11 +13,6 @@
       chat:
         model: qwen-vl-plus
 ```
-
-:::warning
-如果使用的是灵积，需要注入`private final DashScopeAiVLChatModel dashScopeAiVLChatModel;`。
-而不是`private final DashScopeAiChatModel dashScopeAiChatModel;`要不会报错。
-:::
 
 ## 图片上传
 
@@ -77,7 +75,7 @@ public class OSSController {
 
 ## 发送媒体（图片）消息
 
-请参考[发送消息](./chat.md)，在用户发送消息时，判断是否有图片，如果有，则添加到`medias`中。
+请参考[发送消息](./basic/chat.md)，在用户发送消息时，判断是否有图片，如果有，则添加到`medias`中。
 
 ```js
   // 图片/语音

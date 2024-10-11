@@ -40,4 +40,4 @@ private final ChatModel chatModel;
 
 ## 消息发送案例
 
-请参考[消息发送](../chat.md)
+请参考[消息发送](../basic/chat.md)

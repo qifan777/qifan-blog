@@ -68,5 +68,4 @@ spring-ai-bom是spring-ai官方的依赖统一管理。
 [阿里灵积](./dash-scope.md)。
 [百度千帆](./qian-fan.md)
 [智谱清言](./zhi-pu.md)
-[讯飞星火](./spark.md)
 [kimi](./kimi.md)

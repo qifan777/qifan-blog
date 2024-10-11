@@ -25,7 +25,7 @@ order: 1
     redis基础上拓展向量查询功能
 
     ```shell
-    docker run -d 
+    docker run -d \
     --name redis-stack \
     --restart=always \
     -v redis-data:/data \

@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 4
 ---
 # ETL Pipeline
 
@@ -13,7 +13,7 @@ SpringAI提供了ETL框架。它是搭建知识库框架的基石。
 2. DocumentTransformer：文档转换器，处理文档。`TextSplitter`（文档切割成小块），`ContentFormatTransformer`（将文档变成键值对），`SummaryMetadataEnricher`（使用大模型总结文档），`KeywordMetadataEnricher`（使用大模型提取文档关键词）。
 3. DocumentWriter: 文档写入器，将文档写入向量数据库或者本地文件。`VectorStore`（向量数据库写入器），`FileDocumentWriter`（文件写入器）。
 
-![ETL 流水线结构图](./images/etl-pipeline.jpg)
+![ETL 流水线结构图](../images/etl-pipeline.jpg)
 
 ## 读取文件
 

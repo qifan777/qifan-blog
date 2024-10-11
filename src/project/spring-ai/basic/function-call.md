@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 7
 ---
 # FunctionCall
 
@@ -93,22 +93,10 @@ public class DocumentAnalyzerFunction implements Function<DocumentAnalyzerFuncti
 
 ## 使用函数
 
-注入AI模型基座，可以切换不同的AI厂商模型。本案例使用的是阿里的灵积AI服务请参考[灵积接入](./config/dash-scope.md)。
-
-```java
-private final DashScopeAiChatModel dashScopeAiChatModel;
-```
-
-具体哪些模型可以支持`function call`请阅读各个AI厂商的文档。其他AI厂商接入方式请参考下面的链接：
-[百度千帆](./config/qian-fan.md)
-[智谱清言](./config/zhi-pu.md)
-[kimi](./config/kimi.md)
-星火模型目前还未适配`function call`功能。
-
 在实际的开发中可以接收多个函数，通过`functions`参数传入。然后ai会根据提问从这些函数中选择一个执行。
 
 ```java
-    private final DashScopeAiChatModel dashScopeAiChatModel;
+    private final ChatModel chatModel;
 
     /**
      * 调用自定义函数回答用户的提问
@@ -119,7 +107,7 @@ private final DashScopeAiChatModel dashScopeAiChatModel;
      */
     @GetMapping(value = "chat/stream/function", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<ServerSentEvent<String>> chatStreamWithFunction(@RequestParam String prompt, @RequestParam String functionName) {
-        return ChatClient.create(kimiAiChatModel).prompt()
+        return ChatClient.create(chatModel).prompt()
                 .messages(new UserMessage(prompt))
                 // spring ai会从已注册为bean的function中查找函数，将它添加到请求中。如果成功触发就会调用函数
                 .functions(functionName)

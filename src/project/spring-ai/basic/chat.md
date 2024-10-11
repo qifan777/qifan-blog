@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 1
 ---
 # ChatClient发送消息
 
@@ -7,20 +7,19 @@ order: 3
 
 ## AI厂商接入
 
-本案例使用的是阿里的灵积AI服务请参考[灵积接入](./config/dash-scope.md)。
+本案例使用的是阿里的灵积AI服务请参考[灵积接入](../config/dash-scope.md)。
 
 其他AI厂商接入方式请参考下面的链接：
-[百度千帆](./config/qian-fan.md)
-[智谱清言](./config/zhi-pu.md)
-[讯飞星火](./config/spark.md)
-[kimi](./config/kimi.md)
+[百度千帆](../config/qian-fan.md)
+[智谱清言](../config/zhi-pu.md)
+[kimi](../config/kimi.md)
 
 ## 注入AI模型
 
 我这边使用的阿里的灵积模型
 
 ```java
-private final DashScopeAiChatModel dashScopeAiChatModel;
+private final ChatModel chatModel;
 ```
 
 ## 非流式消息发送
@@ -30,15 +29,7 @@ private final DashScopeAiChatModel dashScopeAiChatModel;
 ```java
     // AI模型基座，可以切换不同的AI厂商模型
     // 阿里灵积
-    private final DashScopeAiChatModel dashScopeAiChatModel;
-    // 讯飞星火
-    private final SparkAiChatModel sparkAiChatModel;
-    // 百度千帆
-    private final QianFanChatModel qianFanChatModel;
-    // Kimi
-    private final MoonshotChatModel moonshotChatModel;
-    // 智谱清言
-    private final ZhiPuAiChatModel zhiPuAiChatModel;
+    private final ChatModel chatModel;
 
     /**
      * 非流式问答
@@ -48,7 +39,7 @@ private final DashScopeAiChatModel dashScopeAiChatModel;
      */
     @GetMapping("chat")
     public String chat(@RequestParam String prompt) {
-        ChatClient chatClient = ChatClient.create(dashScopeAiChatModel);
+        ChatClient chatClient = ChatClient.create(chatModel);
         return chatClient.prompt()
                 // 输入单条提示词
                 .user(prompt)
@@ -87,7 +78,7 @@ private final DashScopeAiChatModel dashScopeAiChatModel;
      */
     @GetMapping(value = "chat/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<ServerSentEvent<String>> chatStream(@RequestParam String prompt) {
-        return ChatClient.create(dashScopeAiChatModel).prompt()
+        return ChatClient.create(chatModel).prompt()
                 // 输入多条消息，可以将历史记录传入
                 .messages(new SystemMessage("你是一个Java智能助手，应用你的Java知识帮助用户解决问题或者编写程序"),
                         new UserMessage(prompt))
