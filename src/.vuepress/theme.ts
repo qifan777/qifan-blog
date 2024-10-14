@@ -51,6 +51,13 @@ export default hopeTheme({
     components: {
       components: ["BiliBili"],
     },
+    redirect:true,
+    watermark:true,
+    markdownImage: {
+      figure: true,
+      lazyload: true,
+      size: true,
+    },
     comment: {
       // You should generate and use your own comment service
       provider: "Giscus",
@@ -65,13 +72,9 @@ export default hopeTheme({
       align: true,
       attrs: true,
       // chart: true,
-      codetabs: true,
       demo: true,
       // echarts: true,
-      figure: true,
       gfm: true,
-      imgLazyload: true,
-      imgSize: true,
       include: true,
       // katex: true,
       mark: true,
@@ -95,7 +98,6 @@ export default hopeTheme({
       ],
       sub: true,
       sup: true,
-      tabs: true,
       vPre: true,
       vuePlayground: true,
     },
