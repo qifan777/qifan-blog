@@ -38,7 +38,7 @@ export default hopeTheme({
     medias: {
       BiliBili: "https://space.bilibili.com/357290237",
       GitHub: "https://github.com/qifan777",
-      QQ: "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=-pW05dKQjhQwh26T0UQ4w8Mf7pK_FGwh&authKey=icB10jfBzwEwKzmxGIHk%2BpwQQHK18yWRoPA0AOOHx9cmhp7qxly8wVv8K2zWBaDr&noverify=0&group_code=416765656",
+      QQ: "https://qm.qq.com/q/od3NMHc4yA",
     },
   },
 
