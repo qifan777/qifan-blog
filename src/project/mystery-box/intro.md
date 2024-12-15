@@ -137,3 +137,12 @@ markmap:
 3. `project.config.json`修改`appId`
 4. `yarn dev:weapp`
 5. 导入`mystery-box-miniprogram`到微信开发者工具
+
+## 联系方式
+
+付费远程运行/安装/定制开发联系微信：ljc666max
+
+其他关于程序运行安装报错请加QQ群：
+
+- 416765656（满）
+- 632067985

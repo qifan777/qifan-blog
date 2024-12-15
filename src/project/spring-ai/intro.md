@@ -84,4 +84,7 @@ git clone https://github.com/qifan777/dive-into-spring-ai
 
 付费远程运行/安装/定制开发联系微信：ljc666max
 
-其他关于程序运行安装报错请加QQ群：632067985
+其他关于程序运行安装报错请加QQ群：
+
+- 416765656（满）
+- 632067985
